@@ -13,7 +13,7 @@ const PostHeader: FC<{ post: Post }> = ({ post }) => {
       </div>
       <div className="flex items-center">
         {/* date */}
-        <time className="ml-6 text-gray-500" dateTime={post.date}>
+        <time className="text-gray-500" dateTime={post.date}>
           {post.date}
         </time>
       </div>

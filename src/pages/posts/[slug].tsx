@@ -38,7 +38,13 @@ export const getStaticPaths = async () => {
  * get post content
  */
 export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
-  const post = getPostBySlug(params?.slug as string, ['slug', 'title', 'date', 'content'])
+  const post = getPostBySlug(params?.slug as string, [
+    'slug',
+    'title',
+    'date',
+    'thumbnail',
+    'content',
+  ])
   const content = await markdownToHtml(post.content)
   return {
     props: {

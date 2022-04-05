@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.twemoji > img {
+  @apply m-0 w-auto h-auto !important;
+}
+
+.hljs {
+  letter-spacing: normal;
+  line-height: 1.5;
+}

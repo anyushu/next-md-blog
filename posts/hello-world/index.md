@@ -1,8 +1,31 @@
 ---
 title: "Hello World!"
-date: "2021/12/27"
+date: "2022-01-01"
+thumbnail: "👸"
 ---
 
-## 見出し
+## Heading2
 
-本文
+normal text normal text
+
+### Heading3
+
+normal text normal text
+
+inline `code` normal text
+
+**bold text** normal text
+
+*italic text* normal text
+
+normal text [link](https://google.com)
+
+- lists
+- lists
+- lists
+
+1. list
+2. list
+3. list
+
+> quarto quarto quarto quarto quarto quarto quarto quarto
