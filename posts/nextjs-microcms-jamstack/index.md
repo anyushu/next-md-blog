@@ -1,5 +1,6 @@
 ---
 title: "Next.js x microCMS で作る Jamstack なブログサイト"
+description: "Next.js x microCMS で作る Jamstack なブログサイト"
 date: "2022-02-10"
 thumbnail: "🤖"
 ---
@@ -27,10 +28,10 @@ thumbnail: "🤖"
 ## 使用した技術
 
 - Next.js
-- TypeScript
-- Tailwind CSS
+  - TypeScript
+  - Tailwind CSS
 - microCMS
-- microcms-js-sdk
+  - microcms-js-sdk
 - Vercel
 
 ## Next.js x microCMS で作る Jamstack なブログサイト

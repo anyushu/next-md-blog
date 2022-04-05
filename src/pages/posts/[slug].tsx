@@ -1,4 +1,5 @@
 import { NextPage, InferGetStaticPropsType, GetStaticPropsContext } from 'next'
+import { NextSeo, ArticleJsonLd } from 'next-seo'
 import ErrorPage from 'next/error'
 import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
@@ -36,10 +37,11 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
   const post = getPostBySlug(params?.slug as string, [
     'slug',
+    'content',
     'title',
+    'description',
     'date',
     'thumbnail',
-    'content',
   ])
   return {
     props: {
@@ -56,31 +58,54 @@ const Post: NextPage<Props> = ({ post }) => {
     return <ErrorPage statusCode={404} />
   }
 
+  const postUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/posts/${post.slug}`
+  const postTitle = post.title + ' | ' + siteTitle
+
   return (
-    <Container>
-      <article>
-        <PostHeader post={post} />
-        <ReactMarkdown
-          // eslint-disable-next-line tailwindcss/no-custom-classname
-          className="mt-12 w-full max-w-none tracking-wider leading-relaxed prose prose-slate dark:prose-invert md:px-24 md:mt-24 lg:prose-lg md:prose-md"
-          remarkPlugins={[remarkGfm]}
-          components={{
-            img: CustomImage,
-          }}
-        >
-          {post.content}
-        </ReactMarkdown>
-      </article>
-      <div className="mt-16 md:mt-24">
-        <SocialShare
-          postUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/posts/${post.slug}`}
-          postTitle={post.title + ' | ' + siteTitle}
-        />
-      </div>
-      <div className="mt-16 tracking-widest text-center md:mt-24">
-        <Button href="/">Back Home</Button>
-      </div>
-    </Container>
+    <>
+      <NextSeo
+        title={post.title}
+        description={post.description}
+        openGraph={{
+          url: postUrl,
+          title: postTitle,
+          description: post.description,
+          site_name: process.env.NEXT_PUBLIC_SITE_NAME,
+        }}
+      />
+      <ArticleJsonLd
+        type="Blog"
+        url={postUrl}
+        title={postTitle}
+        images={[``]}
+        datePublished={post.date}
+        dateModified={post.date}
+        authorName={['Anyushu']}
+        publisherName="Anyushu"
+        description={post.description || ''}
+      />
+      <Container>
+        <article>
+          <PostHeader post={post} />
+          <ReactMarkdown
+            // eslint-disable-next-line tailwindcss/no-custom-classname
+            className="mt-12 w-full max-w-none tracking-wider leading-relaxed prose prose-slate dark:prose-invert md:px-24 md:mt-24 lg:prose-lg md:prose-md"
+            remarkPlugins={[remarkGfm]}
+            components={{
+              img: CustomImage,
+            }}
+          >
+            {post.content}
+          </ReactMarkdown>
+        </article>
+        <div className="mt-16 md:mt-24">
+          <SocialShare postUrl={postUrl} postTitle={postTitle} />
+        </div>
+        <div className="mt-16 tracking-widest text-center md:mt-24">
+          <Button href="/">Back Home</Button>
+        </div>
+      </Container>
+    </>
   )
 }
 
