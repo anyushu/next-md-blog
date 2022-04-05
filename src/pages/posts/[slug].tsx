@@ -1,19 +1,13 @@
 import { NextPage, InferGetStaticPropsType, GetStaticPropsContext } from 'next'
 import ErrorPage from 'next/error'
 import { useRouter } from 'next/router'
-import { Twemoji } from 'react-emoji-render'
 import ReactMarkdown from 'react-markdown'
-import {
-  FacebookShareButton,
-  HatenaShareButton,
-  PocketShareButton,
-  TwitterShareButton,
-} from 'react-share'
 import remarkGfm from 'remark-gfm'
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
-import CustomImage from '@/components/atoms/CustomImage'
+import CustomImage from '@/components/molecules/CustomImage'
 import PostHeader from '@/components/molecules/PostHeader'
+import SocialShare from '@/components/organisms/SocialShare'
 import { getAllPosts, getPostBySlug } from '@/libs/post'
 import { siteTitle } from '@/utils/next-seo.config'
 
@@ -62,47 +56,26 @@ const Post: NextPage<Props> = ({ post }) => {
     return <ErrorPage statusCode={404} />
   }
 
-  const postTitle = post.title + ' | ' + siteTitle
-  const postUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/posts/${post.slug}`
-
   return (
     <Container>
       <article>
         <PostHeader post={post} />
-        <div
-          id="news-content"
+        <ReactMarkdown
           // eslint-disable-next-line tailwindcss/no-custom-classname
           className="mt-12 w-full max-w-none tracking-wider leading-relaxed prose prose-slate dark:prose-invert md:px-24 md:mt-24 lg:prose-lg md:prose-md"
+          remarkPlugins={[remarkGfm]}
+          components={{
+            img: CustomImage,
+          }}
         >
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={{
-              img: CustomImage,
-            }}
-          >
-            {post.content}
-          </ReactMarkdown>
-        </div>
+          {post.content}
+        </ReactMarkdown>
       </article>
-      <div className="mt-16 text-center md:mt-24">
-        <p className="flex justify-center items-center mb-6">
-          <Twemoji text="📎" />
-          <span className="ml-1 text-lg tracking-widest">Social Share</span>
-        </p>
-        <div className="flex flex-wrap justify-center items-center">
-          <TwitterShareButton url={postUrl} className="mx-3">
-            <span className="hover:underline">Twitter</span>
-          </TwitterShareButton>
-          <HatenaShareButton url={postUrl} className="mx-3">
-            <span className="hover:underline">Hatena</span>
-          </HatenaShareButton>
-          <FacebookShareButton title={postTitle} url={postUrl} className="mx-3">
-            <span className="hover:underline">Facebook</span>
-          </FacebookShareButton>
-          <PocketShareButton url={postUrl} className="mx-3">
-            <span className="hover:underline">Pocket</span>
-          </PocketShareButton>
-        </div>
+      <div className="mt-16 md:mt-24">
+        <SocialShare
+          postUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/posts/${post.slug}`}
+          postTitle={post.title + ' | ' + siteTitle}
+        />
       </div>
       <div className="mt-16 tracking-widest text-center md:mt-24">
         <Button href="/">Back Home</Button>
