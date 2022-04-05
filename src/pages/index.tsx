@@ -11,7 +11,7 @@ import { getAllPosts } from '@/libs/post'
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts(['slug', 'title', 'date', 'tags'])
+  const allPosts = getAllPosts(['slug', 'title', 'date', 'thumbnail', 'tags'])
   return {
     props: { allPosts },
   }
