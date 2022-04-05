@@ -1,17 +1,30 @@
-import type { ButtonHTMLAttributes } from 'react'
+import Link from 'next/link'
+import type { FC, ReactNode } from 'react'
 
-type ButtonProps = {
-  label: string
-  buttonProps: ButtonHTMLAttributes<HTMLButtonElement>
+interface Props {
+  href?: string
+  children: ReactNode
 }
 
-export const Button = ({ label, buttonProps }: ButtonProps) => {
-  return (
-    <button
-      {...buttonProps}
-      className="py-2 px-4 font-bold text-white bg-blue-500 hover:bg-blue-600 rounded transition duration-300 ease-in-out"
-    >
-      {label}
-    </button>
-  )
+const Button: FC<Props> = ({ href, children }) => {
+  if (href) {
+    return (
+      <Link href={href}>
+        <a className="inline-block py-3 px-8 leading-4 text-white bg-gray-700 hover:bg-gray-900 dark:bg-black-800 transition-all">
+          {children}
+        </a>
+      </Link>
+    )
+  } else {
+    return (
+      <button
+        type="button"
+        className="inline-block py-3 px-8 leading-4 text-white bg-gray-700 hover:bg-gray-900 dark:bg-black-800 transition-all"
+      >
+        {children}
+      </button>
+    )
+  }
 }
+
+export default Button

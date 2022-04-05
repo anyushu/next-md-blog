@@ -3,4 +3,5 @@ export type Post = {
   content: string
   title: string
   date: string
+  thumbnail?: string
 }

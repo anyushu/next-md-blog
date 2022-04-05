@@ -1,14 +1,18 @@
-import '@/styles/globals.css'
 import { DefaultSeo } from 'next-seo'
-import type { AppProps } from 'next/app'
+import { ThemeProvider } from 'next-themes'
+import { AppProps } from 'next/app'
+import Layout from '@/components/templates/Layout'
 import { defaultSeo } from '@/utils/next-seo.config'
+import '@/styles/globals.css'
 
-const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <>
-      <DefaultSeo {...defaultSeo} />
-      <Component {...pageProps} />
-    </>
+    <ThemeProvider attribute="class" defaultTheme="light" storageKey="anyushu-theme">
+      <Layout>
+        <DefaultSeo {...defaultSeo} />
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   )
 }
 

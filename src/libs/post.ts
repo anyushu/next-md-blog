@@ -26,6 +26,7 @@ export const getPostBySlug = (slug: string, fields: string[] = []) => {
     content: '',
     title: '',
     date: '',
+    thumbnail: '',
   }
 
   fields.forEach((field) => {
@@ -35,7 +36,7 @@ export const getPostBySlug = (slug: string, fields: string[] = []) => {
     if (field === 'content') {
       items[field] = content
     }
-    if (field === 'title' || field === 'date') {
+    if (field === 'title' || field === 'date' || field === 'thumbnail') {
       items[field] = data[field]
     }
   })
