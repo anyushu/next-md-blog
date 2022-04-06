@@ -6,7 +6,6 @@
   @apply m-0 w-auto h-auto !important;
 }
 
-.hljs {
-  letter-spacing: normal;
-  line-height: 1.5;
+.react-syntax-highlighter-line-number {
+  padding-right: 1.5em !important;
 }
