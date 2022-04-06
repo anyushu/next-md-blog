@@ -1,12 +1,12 @@
 import Link from 'next/link'
-import type { FC, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 interface Props {
   href?: string
   children: ReactNode
 }
 
-const Button: FC<Props> = ({ href, children }) => {
+const Button = ({ href, children }: Props) => {
   if (href) {
     return (
       <Link href={href}>

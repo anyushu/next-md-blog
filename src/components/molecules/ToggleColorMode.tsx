@@ -1,8 +1,7 @@
 import { useTheme } from 'next-themes'
-import { FC } from 'react'
 import { Twemoji } from 'react-emoji-render'
 
-const ToggleColorMode: FC = () => {
+const ToggleColorMode = () => {
   const { theme, setTheme } = useTheme()
 
   return (

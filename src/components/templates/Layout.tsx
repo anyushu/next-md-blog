@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import CookieConsent from 'react-cookie-consent'
 import colors from 'tailwindcss/colors'
 import Footer from '@/components/organisms/Footer'
@@ -8,7 +8,7 @@ type Props = {
   children: ReactNode
 }
 
-const Layout: FC<Props> = ({ children }) => {
+const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />

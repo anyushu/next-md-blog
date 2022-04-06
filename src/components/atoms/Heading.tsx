@@ -1,4 +1,4 @@
-import type { FC, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 interface Props {
   h: number
@@ -6,7 +6,7 @@ interface Props {
   children: ReactNode
 }
 
-const Heading: FC<Props> = ({ h, className, children }) => {
+const Heading = ({ h, className, children }: Props) => {
   switch (h) {
     case 1:
       return <h1 className={`text-4xl md:text-5xl ${className || ''}`}>{children}</h1>

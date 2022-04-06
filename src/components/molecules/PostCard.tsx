@@ -1,9 +1,8 @@
 import Link from 'next/link'
-import { FC } from 'react'
 import { Twemoji } from 'react-emoji-render'
 import { Post } from '@/types/post'
 
-const PostCard: FC<{ post: Post }> = ({ post }) => {
+const PostCard = ({ post }: { post: Post }) => {
   return (
     <article className="mb-6 md:mb-12">
       <Link href="/posts/[slug]" as={`/posts/${post.slug}`} passHref>

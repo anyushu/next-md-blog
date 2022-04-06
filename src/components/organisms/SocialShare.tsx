@@ -6,7 +6,12 @@ import {
   TwitterShareButton,
 } from 'react-share'
 
-const SocialShare = ({ postUrl, postTitle }: { postUrl: string; postTitle: string }) => {
+type Props = {
+  postUrl: string
+  postTitle: string
+}
+
+const SocialShare = ({ postUrl, postTitle }: Props) => {
   return (
     <div className=" text-center">
       <p className="flex justify-center items-center mb-6">

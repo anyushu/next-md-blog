@@ -1,8 +1,7 @@
-import { FC } from 'react'
 import Heading from '@/components/atoms/Heading'
 import { Post } from '@/types/post'
 
-const PostHeader: FC<{ post: Post }> = ({ post }) => {
+const PostHeader = ({ post }: { post: Post }) => {
   return (
     <>
       {/* title */}
