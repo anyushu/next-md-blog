@@ -1,12 +1,16 @@
 import { NextPage, InferGetStaticPropsType, GetStaticPropsContext } from 'next'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
 import ErrorPage from 'next/error'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
+import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import type { CodeProps } from 'react-markdown/lib/ast-to-react'
+import { LightAsync as SyntaxHighlighter } from 'react-syntax-highlighter'
+import atomOneDark from 'react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark'
 import remarkGfm from 'remark-gfm'
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
-import CustomImage from '@/components/molecules/CustomImage'
 import PostHeader from '@/components/molecules/PostHeader'
 import SocialShare from '@/components/organisms/SocialShare'
 import { getAllPosts, getPostBySlug } from '@/libs/post'
@@ -89,10 +93,11 @@ const Post: NextPage<Props> = ({ post }) => {
           <PostHeader post={post} />
           <ReactMarkdown
             // eslint-disable-next-line tailwindcss/no-custom-classname
-            className="mt-12 w-full max-w-none tracking-wider leading-relaxed prose prose-slate dark:prose-invert md:px-24 md:mt-24 lg:prose-lg md:prose-md"
+            className="prose-pre:p-0 prose-pre:m-0 mt-12 w-full max-w-none tracking-wider prose-pre:leading-normal leading-relaxed prose prose-slate dark:prose-invert md:px-24 md:mt-24 lg:prose-lg md:prose-md"
             remarkPlugins={[remarkGfm]}
             components={{
               img: CustomImage,
+              code: CodeBlock,
             }}
           >
             {post.content}
@@ -110,3 +115,28 @@ const Post: NextPage<Props> = ({ post }) => {
 }
 
 export default Post
+
+/**
+ * CodeBlock
+ */
+const CodeBlock = (props: CodeProps) => {
+  const match = /language-(\w+)/.exec(props.className || '')
+
+  return (
+    <SyntaxHighlighter style={atomOneDark} language={match ? match[1] : undefined} {...props} />
+  )
+}
+
+/**
+ * CustomImage
+ */
+const CustomImage = ({ src, alt }: { src?: string; alt?: string }) => {
+  if (!src) {
+    return <></>
+  }
+  return (
+    <div className="relative pt-[56.25%] w-full h-0">
+      <Image src={src} alt={alt} layout="fill" objectFit="contain" />
+    </div>
+  )
+}
