@@ -49,23 +49,60 @@ thumbnail: "🤖"
 
 ```json
 {
-  "apiFields": [
-    { "fieldId": "title", "name": "タイトル", "kind": "text", "required": true, "isUnique": false },
-    { "fieldId": "thumbnail", "name": "アイキャッチ", "kind": "text", "isUnique": false },
-    {
-      "fieldId": "category",
-      "name": "カテゴリー",
-      "kind": "select",
-      "required": true,
-      "selectItems": [{ "value": "others" }, { "value": "tech" }, { "value": "idea" }, { "value": "column" }],
-      "multipleSelect": false
-    },
-    { "fieldId": "content", "name": "投稿内容", "kind": "richEditor", "required": true },
-    { "fieldId": "metaRobots", "name": "noindex", "kind": "boolean", "description": "チェックすると`noindex`にります" },
-    { "fieldId": "metaDescription", "name": "ディスクリプション", "kind": "textArea" }
-  ]
+  "apiFields": [
+    {
+      "fieldId": "title",
+      "name": "タイトル",
+      "kind": "text",
+      "required": true,
+      "isUnique": false
+    },
+    {
+      "fieldId": "thumbnail",
+      "name": "アイキャッチ",
+      "kind": "text",
+      "isUnique": false
+    },
+    {
+      "fieldId": "category",
+      "name": "カテゴリー",
+      "kind": "select",
+      "required": true,
+      "selectItems": [
+        {
+          "value": "others"
+        },
+        {
+          "value": "tech"
+        },
+        {
+          "value": "idea"
+        },
+        {
+          "value": "column"
+        }
+      ],
+      "multipleSelect": false
+    },
+    {
+      "fieldId": "content",
+      "name": "投稿内容",
+      "kind": "richEditor",
+      "required": true
+    },
+    {
+      "fieldId": "metaRobots",
+      "name": "noindex",
+      "kind": "boolean",
+      "description": "チェックすると`noindex`にります"
+    },
+    {
+      "fieldId": "metaDescription",
+      "name": "ディスクリプション",
+      "kind": "textArea"
+    }
+  ]
 }
-
 ```
 
 ### 3. 必要なパッケージのインストール
@@ -76,7 +113,6 @@ thumbnail: "🤖"
 ```bash
 yarn add microcms-js-sdk
 yarn add -D microcms-typescript
-
 ```
 
 ### 4. microcms-js-sdkを使い記事の取得まで
@@ -90,7 +126,6 @@ export const microcmsClient = createClient({
   serviceDomain: process.env.MICRO_CMS_SERVICE_DOMAIN || '',
   apiKey: process.env.MICRO_CMS_API_KEY || '',
 })
-
 ```
 
 ### 記事取得用の関数
@@ -128,7 +163,6 @@ export const getBlog = (slug: string) => {
     contentId: slug,
   })
 }
-
 ```
 
 ### 5. 記事を表示
@@ -159,7 +193,6 @@ export const getStaticProps = async () => {
     },
   }
 }
-
 ```
 
 ### 記事詳細
@@ -198,7 +231,6 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: s
     },
   }
 }
-
 ```
 
 ## 参考にさせていただいたサイト
