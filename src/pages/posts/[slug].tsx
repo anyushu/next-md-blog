@@ -14,6 +14,7 @@ import Container from '@/components/atoms/Container'
 import PostHeader from '@/components/molecules/PostHeader'
 import SocialShare from '@/components/organisms/SocialShare'
 import { getAllPosts, getPostBySlug } from '@/libs/post'
+import { ogpImageUrl } from '@/utils/blog-helper'
 import { siteTitle } from '@/utils/next-seo.config'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
@@ -74,14 +75,13 @@ const Post: NextPage<Props> = ({ post }) => {
           url: postUrl,
           title: postTitle,
           description: post.description,
-          site_name: process.env.NEXT_PUBLIC_SITE_NAME,
         }}
       />
       <ArticleJsonLd
         type="Blog"
         url={postUrl}
         title={postTitle}
-        images={[``]}
+        images={[ogpImageUrl()]}
         datePublished={post.date}
         dateModified={post.date}
         authorName={['Anyushu']}
