@@ -123,7 +123,17 @@ const CodeBlock = (props: CodeProps) => {
   const match = /language-(\w+)/.exec(props.className || '')
 
   return (
-    <SyntaxHighlighter style={atomOneDark} language={match ? match[1] : undefined} {...props} />
+    <SyntaxHighlighter
+      style={atomOneDark}
+      PreTag="div"
+      language={match ? match[1] : undefined}
+      showLineNumbers={true}
+      customStyle={{
+        padding: '1em',
+      }}
+    >
+      {String(props.children).replace(/\n$/, '')}
+    </SyntaxHighlighter>
   )
 }
 
