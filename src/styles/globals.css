@@ -5,7 +5,3 @@
 .twemoji > img {
   @apply m-0 w-auto h-auto !important;
 }
-
-.react-syntax-highlighter-line-number {
-  padding-right: 1.5em !important;
-}
