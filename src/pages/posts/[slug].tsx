@@ -1,4 +1,4 @@
-import { NextPage, InferGetStaticPropsType, GetStaticPropsContext } from 'next'
+import { NextPage, InferGetStaticPropsType, GetStaticPropsContext, GetStaticPaths } from 'next'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
 import ErrorPage from 'next/error'
 import Image from 'next/image'
@@ -22,7 +22,7 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>
 /**
  * get post slug
  */
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getAllPosts(['slug'])
   return {
     paths: posts.map((post) => {
@@ -93,7 +93,7 @@ const Post: NextPage<Props> = ({ post }) => {
           <PostHeader post={post} />
           <ReactMarkdown
             // eslint-disable-next-line tailwindcss/no-custom-classname
-            className="prose-pre:p-0 prose-pre:m-0 mt-12 w-full max-w-none tracking-wider prose-pre:leading-normal leading-relaxed prose prose-slate dark:prose-invert md:px-24 md:mt-24 lg:prose-lg md:prose-md"
+            className="prose-pre:p-0 prose-pre:m-0 mt-12 w-full max-w-none prose-pre:tracking-normal tracking-wider prose-pre:leading-normal leading-relaxed prose prose-slate dark:prose-invert md:px-24 md:mt-24 lg:prose-lg md:prose-md"
             remarkPlugins={[remarkGfm]}
             components={{
               img: CustomImage,
@@ -129,7 +129,9 @@ const CodeBlock = (props: CodeProps) => {
       language={match ? match[1] : undefined}
       showLineNumbers={true}
       customStyle={{
-        padding: '1em',
+        paddingTop: '1em',
+        paddingBottom: '1em',
+        lineHeight: 1.5,
       }}
     >
       {String(props.children).replace(/\n$/, '')}
@@ -146,7 +148,7 @@ const CustomImage = ({ src, alt }: { src?: string; alt?: string }) => {
   }
   return (
     <div className="relative pt-[56.25%] w-full h-0">
-      <Image src={src} alt={alt} layout="fill" objectFit="contain" />
+      <Image src={src} alt={alt ? alt : ''} layout="fill" objectFit="contain" />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import type { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
+import type { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import React from 'react'
 import Container from '@/components/atoms/Container'
@@ -10,7 +10,7 @@ import { PER_PAGE } from '@/utils/blog-helper'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const allPosts = getAllPosts(['slug'])
   const paths = [...Array(Math.ceil(allPosts.length / PER_PAGE))].map((_, i) => ({
     params: {
@@ -39,7 +39,10 @@ export const getStaticProps = async (context: GetStaticPropsContext<{ number: st
 const PostPage: NextPage<Props> = ({ allPosts, totalCount, currentPage }) => {
   return (
     <>
-      <NextSeo description="フロントエンドエンジニアのブログ。サッカーと映画が好きです。" noindex />
+      <NextSeo
+        title={`All Posts - Page ${currentPage}`}
+        description="フロントエンドエンジニアのブログ。サッカーと映画が好きです。"
+      />
       <Container>
         <Heading h={2} className="mb-6 tracking-wider">
           Page: {currentPage} / {Math.ceil(totalCount / PER_PAGE)}
