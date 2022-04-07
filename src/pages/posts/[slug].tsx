@@ -1,5 +1,5 @@
 import { NextPage, InferGetStaticPropsType, GetStaticPropsContext, GetStaticPaths } from 'next'
-import { NextSeo, ArticleJsonLd } from 'next-seo'
+import { NextSeo, ArticleJsonLd, BreadcrumbJsonLd } from 'next-seo'
 import ErrorPage from 'next/error'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -11,6 +11,7 @@ import atomOneDark from 'react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-
 import remarkGfm from 'remark-gfm'
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
+import Breadcrumb from '@/components/molecules/Breadcrumb'
 import PostHeader from '@/components/molecules/PostHeader'
 import SocialShare from '@/components/organisms/SocialShare'
 import { getAllPosts, getPostBySlug } from '@/libs/post'
@@ -88,6 +89,21 @@ const Post: NextPage<Props> = ({ post }) => {
         publisherName="Anyushu"
         description={post.description || ''}
       />
+      <BreadcrumbJsonLd
+        itemListElements={[
+          {
+            position: 1,
+            name: 'HOME',
+            item: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+          },
+          {
+            position: 2,
+            name: post.title,
+            item: postUrl,
+          },
+        ]}
+      />
+
       <Container>
         <article>
           <PostHeader post={post} />
@@ -108,6 +124,16 @@ const Post: NextPage<Props> = ({ post }) => {
         </div>
         <div className="mt-16 tracking-widest text-center md:mt-24">
           <Button href="/">Back Home</Button>
+        </div>
+        <div className="mt-16 md:mt-24">
+          <Breadcrumb
+            links={[
+              {
+                pageTitle: post.title,
+                pageUrl: postUrl,
+              },
+            ]}
+          />
         </div>
       </Container>
     </>
