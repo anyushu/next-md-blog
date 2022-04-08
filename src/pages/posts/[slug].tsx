@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown'
 import type { CodeProps } from 'react-markdown/lib/ast-to-react'
 import { LightAsync as SyntaxHighlighter } from 'react-syntax-highlighter'
 import atomOneDark from 'react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark'
+import { TwitterTweetEmbed } from 'react-twitter-embed'
 import remarkGfm from 'remark-gfm'
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
@@ -113,6 +114,9 @@ const Post: NextPage<Props> = ({ post }) => {
             remarkPlugins={[remarkGfm]}
             components={{
               img: CustomImage,
+              pre({ ...props }) {
+                return <>{props.children}</>
+              },
               code: CodeBlock,
             }}
           >
@@ -148,20 +152,31 @@ export default Post
 const CodeBlock = (props: CodeProps) => {
   const match = /language-(\w+)/.exec(props.className || '')
 
+  if (!match) {
+    return <></>
+  }
+
+  if (match[1] == 'twitter') {
+    return <TwitterTweetEmbed tweetId={String(props.children).replace(/\n$/, '')} />
+  }
+
   return (
-    <SyntaxHighlighter
-      style={atomOneDark}
-      PreTag="div"
-      language={match ? match[1] : undefined}
-      showLineNumbers={true}
-      customStyle={{
-        paddingTop: '1em',
-        paddingBottom: '1em',
-        lineHeight: 1.5,
-      }}
-    >
-      {String(props.children).replace(/\n$/, '')}
-    </SyntaxHighlighter>
+    <pre>
+      <SyntaxHighlighter
+        style={atomOneDark}
+        PreTag="div"
+        language={match[1]}
+        showLineNumbers={true}
+        customStyle={{
+          paddingTop: '1em',
+          paddingBottom: '1em',
+          lineHeight: 1.5,
+        }}
+        {...props}
+      >
+        {String(props.children).replace(/\n$/, '')}
+      </SyntaxHighlighter>
+    </pre>
   )
 }
 
