@@ -176,6 +176,17 @@ const CodeBlock = (props: CodeProps) => {
     )
   }
 
+  if (match[1] == 'iframe') {
+    return (
+      <div className="relative p-1 pt-[56.25%] my-5 w-full h-0">
+        <iframe
+          className="absolute top-0 left-0 w-full h-full"
+          src={String(props.children).replace(/\n$/, '')}
+        />
+      </div>
+    )
+  }
+
   return (
     <pre>
       <SyntaxHighlighter
