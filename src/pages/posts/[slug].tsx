@@ -168,13 +168,34 @@ const CodeBlock = (props: CodeProps) => {
 /**
  * CustomImage
  */
-const CustomImage = ({ src, alt }: { src?: string; alt?: string }) => {
-  if (!src) {
+const CustomImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
+  if (!props.src) {
     return <></>
   }
+
+  if (props.alt) {
+    const imageSizeIndex = props.alt.indexOf('?')
+    const imageAlt = props.alt.substring(0, imageSizeIndex)
+    const imageSizeStr = props.alt.substring(imageSizeIndex + 1)
+    const imageWidth = imageSizeStr.substring(
+      imageSizeStr.indexOf('w=') + 2,
+      imageSizeStr.indexOf('&'),
+    )
+    const imageHeight = imageSizeStr.substring(imageSizeStr.indexOf('h=') + 2)
+
+    return (
+      <Image
+        src={props.src}
+        alt={imageAlt}
+        width={Number(imageWidth)}
+        height={Number(imageHeight)}
+      />
+    )
+  }
+
   return (
-    <div className="relative pt-[56.25%] w-full h-0">
-      <Image src={src} alt={alt ? alt : ''} layout="fill" objectFit="contain" />
-    </div>
+    <span className="block relative pt-[56.25%] w-full h-0">
+      <Image src={props.src} alt={props.alt ? props.alt : ''} layout="fill" objectFit="contain" />
+    </span>
   )
 }
