@@ -9,6 +9,7 @@ import type { CodeProps } from 'react-markdown/lib/ast-to-react'
 import { LightAsync as SyntaxHighlighter } from 'react-syntax-highlighter'
 import atomOneDark from 'react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
+import YouTube from 'react-youtube'
 import remarkGfm from 'remark-gfm'
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
@@ -157,7 +158,22 @@ const CodeBlock = (props: CodeProps) => {
   }
 
   if (match[1] == 'twitter') {
-    return <TwitterTweetEmbed tweetId={String(props.children).replace(/\n$/, '')} />
+    return (
+      <div className="my-5">
+        <TwitterTweetEmbed tweetId={String(props.children).replace(/\n$/, '')} />
+      </div>
+    )
+  }
+
+  if (match[1] == 'youtube') {
+    return (
+      <div className="relative pt-[56.25%] my-5 w-full h-0">
+        <YouTube
+          className="absolute top-0 left-0 w-full h-full"
+          videoId={String(props.children).replace(/\n$/, '')}
+        />
+      </div>
+    )
   }
 
   return (
