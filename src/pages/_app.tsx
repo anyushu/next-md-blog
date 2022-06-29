@@ -1,6 +1,6 @@
 import { DefaultSeo } from 'next-seo'
 import { ThemeProvider } from 'next-themes'
-import { AppProps } from 'next/app'
+import type { AppProps } from 'next/app'
 import Script from 'next/script'
 import Layout from '@/components/templates/Layout'
 import { GTM_ID } from '@/utils/gtm'

@@ -11,7 +11,7 @@ const PageNavi = ({ totalCount, currentPage }: props) => {
   const isNext = Math.ceil(totalCount / PER_PAGE) !== currentPage
 
   return (
-    <div className="flex justify-between items-center mx-auto max-w-3xl">
+    <div className="mx-auto flex max-w-3xl items-center justify-between">
       {isPrev && (
         <Link href={`/page/${currentPage - 1}`}>
           <a className="mr-auto underline hover:no-underline">Prev Page</a>

@@ -9,11 +9,11 @@ const PrivacyPolicy: NextPage = () => {
       <NextSeo title="プライバシーポリシー" />
 
       <Container>
-        <Heading h={2} className="tracking-wider text-center">
+        <Heading h={2} className="text-center tracking-wider">
           PrivacyPolicy
         </Heading>
 
-        <div className="mx-auto mt-12 prose dark:prose-invert">
+        <div className="prose mx-auto mt-12 dark:prose-invert">
           <p>
             本プライバシーポリシーは、{process.env.NEXT_PUBLIC_SITE_NAME}（
             {process.env.NEXT_PUBLIC_SITE_URL}）
