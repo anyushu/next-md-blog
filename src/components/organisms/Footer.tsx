@@ -4,7 +4,7 @@ import { siteTitle } from '@/utils/next-seo.config'
 
 const Footer = () => {
   return (
-    <footer id="footer" className="py-12 mt-24 bg-gray-100 dark:bg-black-800">
+    <footer id="footer" className="mt-24 bg-gray-100 py-12 dark:bg-black-800">
       <Container>
         <div className="text-center">
           <h2 className="text-xl tracking-widest">
@@ -12,7 +12,7 @@ const Footer = () => {
               <a>{siteTitle}</a>
             </Link>
           </h2>
-          <nav className="flex justify-center my-6 text-sm">
+          <nav className="my-6 flex justify-center text-sm">
             <Link href="/">
               <a className="hover:text-gray-700">Home</a>
             </Link>
@@ -27,7 +27,7 @@ const Footer = () => {
               </a>
             </Link>
           </nav>
-          <nav className="flex justify-center my-6 text-sm">
+          <nav className="my-6 flex justify-center text-sm">
             <Link href="/privacy-policy">
               <a className="hover:text-gray-700">PrivacyPolicy</a>
             </Link>

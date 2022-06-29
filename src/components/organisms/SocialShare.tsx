@@ -14,11 +14,11 @@ type Props = {
 const SocialShare = ({ postUrl, postTitle }: Props) => {
   return (
     <div className=" text-center">
-      <p className="flex justify-center items-center mb-6">
+      <p className="mb-6 flex items-center justify-center">
         <Twemoji text="📎" />
         <span className="ml-1 text-lg tracking-widest">Social Share</span>
       </p>
-      <div className="flex flex-wrap justify-center items-center">
+      <div className="flex flex-wrap items-center justify-center">
         <TwitterShareButton url={postUrl} className="mx-3">
           <span className="hover:underline">Twitter</span>
         </TwitterShareButton>

@@ -111,7 +111,7 @@ const Post: NextPage<Props> = ({ post }) => {
           <PostHeader post={post} />
           <ReactMarkdown
             // eslint-disable-next-line tailwindcss/no-custom-classname
-            className="prose-pre:p-0 prose-pre:m-0 mt-12 w-full max-w-none prose-pre:tracking-normal tracking-wider prose-pre:leading-normal leading-relaxed prose prose-slate dark:prose-invert md:px-24 md:mt-24 lg:prose-lg md:prose-md"
+            className="md:prose-md prose prose-slate mt-12 w-full max-w-none leading-relaxed tracking-wider prose-pre:m-0 prose-pre:p-0 prose-pre:leading-normal prose-pre:tracking-normal dark:prose-invert md:mt-24 md:px-24 lg:prose-lg"
             remarkPlugins={[remarkGfm]}
             components={{
               img: CustomImage,
@@ -127,7 +127,7 @@ const Post: NextPage<Props> = ({ post }) => {
         <div className="mt-16 md:mt-24">
           <SocialShare postUrl={postUrl} postTitle={postTitle} />
         </div>
-        <div className="mt-16 tracking-widest text-center md:mt-24">
+        <div className="mt-16 text-center tracking-widest md:mt-24">
           <Button href="/">Back Home</Button>
         </div>
         <div className="mt-16 md:mt-24">
@@ -167,9 +167,9 @@ const CodeBlock = (props: CodeProps) => {
 
   if (match[1] == 'youtube') {
     return (
-      <div className="relative pt-[56.25%] my-5 w-full h-0">
+      <div className="relative my-5 h-0 w-full pt-[56.25%]">
         <YouTube
-          className="absolute top-0 left-0 w-full h-full"
+          className="absolute top-0 left-0 h-full w-full"
           videoId={String(props.children).replace(/\n$/, '')}
         />
       </div>
@@ -178,9 +178,9 @@ const CodeBlock = (props: CodeProps) => {
 
   if (match[1] == 'iframe') {
     return (
-      <div className="relative p-1 pt-[56.25%] my-5 w-full h-0">
+      <div className="relative my-5 h-0 w-full p-1 pt-[56.25%]">
         <iframe
-          className="absolute top-0 left-0 w-full h-full"
+          className="absolute top-0 left-0 h-full w-full"
           src={String(props.children).replace(/\n$/, '')}
         />
       </div>
@@ -199,7 +199,6 @@ const CodeBlock = (props: CodeProps) => {
           paddingBottom: '1em',
           lineHeight: 1.5,
         }}
-        {...props}
       >
         {String(props.children).replace(/\n$/, '')}
       </SyntaxHighlighter>
@@ -236,7 +235,7 @@ const CustomImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
   }
 
   return (
-    <span className="block relative pt-[56.25%] w-full h-0">
+    <span className="relative block h-0 w-full pt-[56.25%]">
       <Image src={props.src} alt={props.alt ? props.alt : ''} layout="fill" objectFit="contain" />
     </span>
   )

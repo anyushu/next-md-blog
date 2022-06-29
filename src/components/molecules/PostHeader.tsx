@@ -6,7 +6,7 @@ const PostHeader = ({ post }: { post: Post }) => {
     <>
       {/* title */}
       <div id="post-title" className="mb-6">
-        <Heading h={2} className="tracking-wider leading-relaxed">
+        <Heading h={2} className="leading-relaxed tracking-wider">
           {post.title}
         </Heading>
       </div>
