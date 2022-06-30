@@ -111,7 +111,7 @@ const Post: NextPage<Props> = ({ post }) => {
           <PostHeader post={post} />
           <ReactMarkdown
             // eslint-disable-next-line tailwindcss/no-custom-classname
-            className="md:prose-md prose prose-slate mt-12 w-full max-w-none leading-relaxed tracking-wider prose-pre:m-0 prose-pre:p-0 prose-pre:leading-normal prose-pre:tracking-normal dark:prose-invert md:mt-24 md:px-24 lg:prose-lg"
+            className="md:prose-md prose prose-slate mt-12 w-full max-w-none leading-relaxed tracking-wider prose-pre:m-0 prose-pre:p-0 prose-pre:leading-normal prose-pre:tracking-normal md:mt-24 md:px-24 lg:prose-lg"
             remarkPlugins={[remarkGfm]}
             components={{
               img: CustomImage,

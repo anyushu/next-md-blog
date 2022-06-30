@@ -1,7 +1,6 @@
 import { Popover, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import { Fragment } from 'react'
-import ToggleColorMode from '@/components/molecules/ToggleColorMode'
 import { siteTitle } from '@/utils/next-seo.config'
 
 const headMenus = [
@@ -25,7 +24,7 @@ const Header = () => {
               aria-label="Global"
             >
               <div className="flex items-center md:hidden">
-                <Popover.Button className="bg-white focus:outline-none dark:bg-black-900">
+                <Popover.Button className="bg-white focus:outline-none">
                   <span>Menu</span>
                 </Popover.Button>
               </div>
@@ -48,9 +47,6 @@ const Header = () => {
                     </Link>
                   )
                 })}
-                <div className="ml-6 leading-none">
-                  <ToggleColorMode />
-                </div>
               </div>
             </nav>
             <Transition
@@ -66,7 +62,7 @@ const Header = () => {
                 focus
                 className="absolute inset-x-0 top-0 z-10 origin-top-right p-2 transition md:hidden"
               >
-                <div className="flex items-center justify-center overflow-hidden rounded-lg bg-white py-6 px-3 shadow-md dark:bg-black-800">
+                <div className="flex items-center justify-center overflow-hidden rounded-lg bg-white py-6 px-3 shadow-md">
                   <Link href="/">
                     <a className="px-3 text-center leading-4 hover:text-gray-700 focus-visible:outline-none">
                       Home
@@ -85,9 +81,6 @@ const Header = () => {
                       </Link>
                     )
                   })}
-                  <div className="ml-6 leading-none">
-                    <ToggleColorMode />
-                  </div>
                 </div>
               </Popover.Panel>
             </Transition>
