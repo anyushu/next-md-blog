@@ -1,4 +1,5 @@
-const colors = require('tailwindcss/colors')
+const draculaColors = require('tailwind-dracula/colors')
+const tailwindColors = require('tailwindcss/colors')
 
 module.exports = {
   content: ['./src/pages/**/*.{ts,tsx}', './src/components/**/*.{ts,tsx}'],
@@ -9,23 +10,17 @@ module.exports = {
         sans: ['Red Hat Display', 'Noto Sans JP', 'sans-serif'],
       },
       colors: {
-        black: colors.slate,
-        gray: colors.slate,
-        indigo: colors.indigo,
-        red: colors.red,
-        pink: colors.pink,
-        yellow: colors.amber,
-        orange: colors.orange,
-        blue: colors.blue,
-        green: colors.emerald,
-        purple: colors.violet,
+        ...draculaColors,
       },
       typography: {
         DEFAULT: {
           css: {
+            color: tailwindColors.slate[50],
             a: {
+              textDecoration: 'none',
+              color: draculaColors.cyan[300],
               '&:hover': {
-                textDecoration: 'none',
+                color: draculaColors.cyan[100],
               },
             },
             pre: {
@@ -42,5 +37,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography'), require('tailwind-dracula')()],
 }

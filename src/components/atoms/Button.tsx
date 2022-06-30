@@ -10,7 +10,7 @@ const Button = ({ href, children }: Props) => {
   if (href) {
     return (
       <Link href={href}>
-        <a className="inline-block bg-gray-700 py-3 px-8 leading-4 text-white transition-all hover:bg-gray-900 dark:bg-black-800">
+        <a className="inline-block border border-pink py-3 px-8 leading-4 text-pink transition-all hover:bg-pink hover:text-slate-50">
           {children}
         </a>
       </Link>
@@ -19,7 +19,7 @@ const Button = ({ href, children }: Props) => {
     return (
       <button
         type="button"
-        className="inline-block bg-gray-700 py-3 px-8 leading-4 text-white transition-all hover:bg-gray-900 dark:bg-black-800"
+        className="inline-block border border-pink py-3 px-8 leading-4 text-pink transition-all hover:bg-pink hover:text-slate-50"
       >
         {children}
       </button>

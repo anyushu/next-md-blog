@@ -8,7 +8,7 @@ const PostCard = ({ post }: { post: Post }) => {
       <Link href="/posts/[slug]" as={`/posts/${post.slug}`} passHref>
         <a className="transition-all hover:opacity-75">
           {/* thumbnail */}
-          <figure className="relative h-0 bg-gray-100 pt-[46.29%]">
+          <figure className="relative h-0 bg-slate-50 pt-[46.29%]">
             <Twemoji
               className="absolute inset-0 m-auto h-16 w-16 text-7xl"
               onlyEmojiClassName="twemoji"
@@ -16,7 +16,7 @@ const PostCard = ({ post }: { post: Post }) => {
               text={post.thumbnail || '☕'}
             />
           </figure>
-          <div className="my-6 flex items-center justify-between text-xs tracking-widest text-gray-500">
+          <div className="my-6 flex items-center justify-between text-xs tracking-widest">
             {/* created_time */}
             <time dateTime={post.date}>{post.date}</time>
           </div>

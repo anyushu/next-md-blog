@@ -6,8 +6,8 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import type { CodeProps } from 'react-markdown/lib/ast-to-react'
-import { LightAsync as SyntaxHighlighter } from 'react-syntax-highlighter'
-import atomOneDark from 'react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import dracula from 'react-syntax-highlighter/dist/cjs/styles/prism/dracula'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
 import YouTube from 'react-youtube'
 import remarkGfm from 'remark-gfm'
@@ -111,7 +111,7 @@ const Post: NextPage<Props> = ({ post }) => {
           <PostHeader post={post} />
           <ReactMarkdown
             // eslint-disable-next-line tailwindcss/no-custom-classname
-            className="md:prose-md prose prose-slate mt-12 w-full max-w-none leading-relaxed tracking-wider prose-pre:m-0 prose-pre:p-0 prose-pre:leading-normal prose-pre:tracking-normal dark:prose-invert md:mt-24 md:px-24 lg:prose-lg"
+            className="md:prose-md prose prose-invert mt-12 w-full max-w-none leading-relaxed tracking-wider prose-pre:m-0 prose-pre:p-0 prose-pre:leading-normal prose-pre:tracking-normal md:mt-24 md:px-24 lg:prose-lg"
             remarkPlugins={[remarkGfm]}
             components={{
               img: CustomImage,
@@ -188,16 +188,14 @@ const CodeBlock = (props: CodeProps) => {
   }
 
   return (
-    <pre>
+    <pre className="border border-dark">
       <SyntaxHighlighter
-        style={atomOneDark}
+        style={dracula}
         PreTag="div"
         language={match[1]}
         showLineNumbers={true}
         customStyle={{
-          paddingTop: '1em',
-          paddingBottom: '1em',
-          lineHeight: 1.5,
+          margin: 0,
         }}
       >
         {String(props.children).replace(/\n$/, '')}

@@ -12,9 +12,7 @@ const PostHeader = ({ post }: { post: Post }) => {
       </div>
       <div className="flex items-center">
         {/* date */}
-        <time className="text-gray-500" dateTime={post.date}>
-          {post.date}
-        </time>
+        <time dateTime={post.date}>{post.date}</time>
       </div>
     </>
   )

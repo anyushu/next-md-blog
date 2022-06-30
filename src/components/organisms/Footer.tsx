@@ -4,7 +4,7 @@ import { siteTitle } from '@/utils/next-seo.config'
 
 const Footer = () => {
   return (
-    <footer id="footer" className="mt-24 bg-gray-100 py-12 dark:bg-black-800">
+    <footer id="footer" className="mt-24 border-t border-slate-50 py-12">
       <Container>
         <div className="text-center">
           <h2 className="text-xl tracking-widest">
