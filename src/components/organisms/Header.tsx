@@ -14,7 +14,7 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           {/* logo */}
-          <h1 className="text-lg font-bold tracking-widest">
+          <h1 className="text-lg font-bold tracking-widest hover:text-cyan-300">
             <Link href="/">{siteTitle}</Link>
           </h1>
           {/* menus */}
@@ -24,13 +24,13 @@ const Header = () => {
               aria-label="Global"
             >
               <div className="flex items-center md:hidden">
-                <Popover.Button className="bg-white focus:outline-none">
+                <Popover.Button className="focus:outline-none">
                   <span>Menu</span>
                 </Popover.Button>
               </div>
               <div className="hidden items-center md:flex">
                 <Link href="/">
-                  <a className="ml-6 text-sm leading-4 hover:text-gray-700 focus-visible:outline-none md:text-base">
+                  <a className="ml-6 text-sm leading-4 hover:text-cyan-300 focus-visible:outline-none md:text-base">
                     Home
                   </a>
                 </Link>
@@ -38,7 +38,7 @@ const Header = () => {
                   return (
                     <Link href={val.href} key={key}>
                       <a
-                        className="ml-6 text-sm leading-4 hover:text-gray-700 focus-visible:outline-none md:text-base"
+                        className="ml-6 text-sm leading-4 hover:text-cyan-300 focus-visible:outline-none md:text-base"
                         rel="noopener noreferrer"
                         target="_blank"
                       >
@@ -62,9 +62,9 @@ const Header = () => {
                 focus
                 className="absolute inset-x-0 top-0 z-10 origin-top-right p-2 transition md:hidden"
               >
-                <div className="flex items-center justify-center overflow-hidden rounded-lg bg-white py-6 px-3 shadow-md">
+                <div className="flex items-center justify-center overflow-hidden rounded-l bg-darker-800 py-6 px-3 shadow-md">
                   <Link href="/">
-                    <a className="px-3 text-center leading-4 hover:text-gray-700 focus-visible:outline-none">
+                    <a className="px-3 text-center leading-4 hover:text-cyan-300 focus-visible:outline-none">
                       Home
                     </a>
                   </Link>
@@ -72,7 +72,7 @@ const Header = () => {
                     return (
                       <Link href={val.href} key={key}>
                         <a
-                          className="px-3 text-center leading-4 hover:text-gray-700 focus-visible:outline-none"
+                          className="px-3 text-center leading-4 hover:text-cyan-300 focus-visible:outline-none"
                           rel="noopener noreferrer"
                           target="_blank"
                         >
