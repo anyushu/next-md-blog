@@ -20,16 +20,16 @@ const SocialShare = ({ postUrl, postTitle }: Props) => {
       </p>
       <div className="flex flex-wrap items-center justify-center">
         <TwitterShareButton url={postUrl} className="mx-3">
-          <span className="hover:underline">Twitter</span>
+          <span className="hover:text-cyan-300">Twitter</span>
         </TwitterShareButton>
         <HatenaShareButton url={postUrl} className="mx-3">
-          <span className="hover:underline">Hatena</span>
+          <span className="hover:text-cyan-300">Hatena</span>
         </HatenaShareButton>
         <FacebookShareButton title={postTitle} url={postUrl} className="mx-3">
-          <span className="hover:underline">Facebook</span>
+          <span className="hover:text-cyan-300">Facebook</span>
         </FacebookShareButton>
         <PocketShareButton url={postUrl} className="mx-3">
-          <span className="hover:underline">Pocket</span>
+          <span className="hover:text-cyan-300">Pocket</span>
         </PocketShareButton>
       </div>
     </div>

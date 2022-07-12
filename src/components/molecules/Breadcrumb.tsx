@@ -27,7 +27,7 @@ const Breadcrumb = ({ links }: BreadcrumbPorps) => {
           <li key={pageUrl} className="inline-block">
             <span className="mr-2">{`>`}</span>
             <Link href={pageUrl}>
-              <a>{pageTitle}</a>
+              <a className="hover:text-cyan-300">{pageTitle}</a>
             </Link>
           </li>
         )
