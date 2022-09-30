@@ -25,7 +25,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [lint-staged](https://github.com/okonet/lint-staged#readme)
 - [PostCSS](https://postcss.org/)
 - [Prettier](https://prettier.io/)
-- [Tailwind CSS](https://tailwindcss.com/)
+- [Dracula UI](https://ui.draculatheme.com/)
 - [Webpack Bundle Analyzer](https://github.com/vercel/next.js/tree/canary/packages/next-bundle-analyzer#nextjs--webpack-bundle-analyzer)
 
 ## Project Structure
@@ -44,14 +44,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 │ ├─ libs
 │ ├─ types
 │ ├─ pages
-│ ├─ styles
 │ └─ utils
 ├─ .eslintrc.json
 ├─ .prettierrc.json
 ├─ lint-staged.config.js
 ├─ next-sitemap.js
 ├─ next.config.js
-├─ postcss.config.js
-├─ tsconfig.json
-└─ tailwind.config.js
+└─ tsconfig.json
 ```
