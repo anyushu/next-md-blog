@@ -4,7 +4,7 @@ import Script from 'next/script'
 import Layout from '@/components/templates/Layout'
 import { GTM_ID } from '@/utils/gtm'
 import { defaultSeo } from '@/utils/next-seo.config'
-import '@/styles/globals.css'
+import 'dracula-ui/styles/dracula-ui.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
