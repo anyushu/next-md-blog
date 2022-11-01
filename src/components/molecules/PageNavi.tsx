@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import { PER_PAGE } from '@/utils/blog-helper'
 
 type props = {
@@ -13,13 +14,13 @@ const PageNavi = ({ totalCount, currentPage }: props) => {
   return (
     <div className="mx-auto flex max-w-3xl items-center justify-between">
       {isPrev && (
-        <Link href={`/page/${currentPage - 1}`}>
-          <a className="mr-auto underline hover:no-underline">Prev Page</a>
+        <Link href={`/page/${currentPage - 1}`} className="mr-auto underline hover:no-underline">
+          Prev Page
         </Link>
       )}
       {isNext && (
-        <Link href={`/page/${currentPage + 1}`}>
-          <a className="ml-auto underline hover:no-underline">Next Page</a>
+        <Link href={`/page/${currentPage + 1}`} className="ml-auto underline hover:no-underline">
+          Next Page
         </Link>
       )}
     </div>

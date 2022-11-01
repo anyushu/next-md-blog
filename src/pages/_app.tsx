@@ -1,6 +1,7 @@
 import { DefaultSeo } from 'next-seo'
 import type { AppProps } from 'next/app'
 import Script from 'next/script'
+
 import Layout from '@/components/templates/Layout'
 import { GTM_ID } from '@/utils/gtm'
 import { defaultSeo } from '@/utils/next-seo.config'

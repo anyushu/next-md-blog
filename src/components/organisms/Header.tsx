@@ -1,6 +1,7 @@
 import { Popover, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import { Fragment } from 'react'
+
 import { siteTitle } from '@/utils/next-seo.config'
 
 const headMenus = [
@@ -15,7 +16,9 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* logo */}
           <h1 className="text-lg font-bold tracking-widest hover:text-cyan-300">
-            <Link href="/">{siteTitle}</Link>
+            <Link href="/" legacyBehavior>
+              {siteTitle}
+            </Link>
           </h1>
           {/* menus */}
           <Popover>
@@ -29,21 +32,22 @@ const Header = () => {
                 </Popover.Button>
               </div>
               <div className="hidden items-center md:flex">
-                <Link href="/">
-                  <a className="ml-6 text-sm leading-4 hover:text-cyan-300 focus-visible:outline-none md:text-base">
-                    Home
-                  </a>
+                <Link
+                  href="/"
+                  className="ml-6 text-sm leading-4 hover:text-cyan-300 focus-visible:outline-none md:text-base"
+                >
+                  Home
                 </Link>
                 {headMenus.map((val, key) => {
                   return (
-                    <Link href={val.href} key={key}>
-                      <a
-                        className="ml-6 text-sm leading-4 hover:text-cyan-300 focus-visible:outline-none md:text-base"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        {val.name}
-                      </a>
+                    <Link
+                      href={val.href}
+                      key={key}
+                      className="ml-6 text-sm leading-4 hover:text-cyan-300 focus-visible:outline-none md:text-base"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {val.name}
                     </Link>
                   )
                 })}
@@ -63,21 +67,22 @@ const Header = () => {
                 className="absolute inset-x-0 top-0 z-10 origin-top-right p-2 transition md:hidden"
               >
                 <div className="flex items-center justify-center overflow-hidden rounded-l bg-darker-800 py-6 px-3 shadow-md">
-                  <Link href="/">
-                    <a className="px-3 text-center leading-4 hover:text-cyan-300 focus-visible:outline-none">
-                      Home
-                    </a>
+                  <Link
+                    href="/"
+                    className="px-3 text-center leading-4 hover:text-cyan-300 focus-visible:outline-none"
+                  >
+                    Home
                   </Link>
                   {headMenus.map((val, key) => {
                     return (
-                      <Link href={val.href} key={key}>
-                        <a
-                          className="px-3 text-center leading-4 hover:text-cyan-300 focus-visible:outline-none"
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        >
-                          {val.name}
-                        </a>
+                      <Link
+                        href={val.href}
+                        key={key}
+                        className="px-3 text-center leading-4 hover:text-cyan-300 focus-visible:outline-none"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        {val.name}
                       </Link>
                     )
                   })}
