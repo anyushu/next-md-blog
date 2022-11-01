@@ -1,6 +1,7 @@
 import type { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import React from 'react'
+
 import Container from '@/components/atoms/Container'
 import Heading from '@/components/atoms/Heading'
 import PageNavi from '@/components/molecules/PageNavi'

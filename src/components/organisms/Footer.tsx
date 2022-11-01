@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import Container from '@/components/atoms/Container'
 import { siteTitle } from '@/utils/next-seo.config'
 

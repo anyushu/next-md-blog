@@ -1,6 +1,7 @@
 import { Popover, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import { Fragment } from 'react'
+
 import { siteTitle } from '@/utils/next-seo.config'
 
 const headMenus = [

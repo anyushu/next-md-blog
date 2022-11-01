@@ -1,6 +1,7 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import React from 'react'
+
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
 import Heading from '@/components/atoms/Heading'

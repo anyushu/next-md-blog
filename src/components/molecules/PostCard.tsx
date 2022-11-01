@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Twemoji } from 'react-emoji-render'
+
 import { Post } from '@/types/post'
 
 const PostCard = ({ post }: { post: Post }) => {
