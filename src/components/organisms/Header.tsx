@@ -66,7 +66,7 @@ const Header = () => {
                 focus
                 className="absolute inset-x-0 top-0 z-10 origin-top-right p-2 transition md:hidden"
               >
-                <div className="bg-darker-800 flex items-center justify-center overflow-hidden rounded-l py-6 px-3 shadow-md">
+                <div className="flex items-center justify-center overflow-hidden rounded-l py-6 px-3 shadow-md">
                   <Link
                     href="/"
                     className="px-3 text-center leading-4 hover:text-cyan-300 focus-visible:outline-none"
