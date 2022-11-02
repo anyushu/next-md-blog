@@ -5,3 +5,7 @@
 .twemoji > img {
   @apply m-0 w-auto h-auto !important;
 }
+
+a:not(.btn):hover {
+  @apply text-cyan-300;
+}

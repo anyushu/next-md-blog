@@ -9,19 +9,13 @@ interface Props {
 const Button = ({ href, children }: Props) => {
   if (href) {
     return (
-      <Link
-        href={href}
-        className="inline-block border border-pink py-3 px-8 leading-4 text-pink transition-all hover:bg-pink hover:text-slate-50"
-      >
+      <Link href={href} className="btn btn-primary">
         {children}
       </Link>
     )
   } else {
     return (
-      <button
-        type="button"
-        className="inline-block border border-pink py-3 px-8 leading-4 text-pink transition-all hover:bg-pink hover:text-slate-50"
-      >
+      <button type="button" className="btn btn-primary">
         {children}
       </button>
     )

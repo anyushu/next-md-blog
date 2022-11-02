@@ -14,7 +14,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className="bg-darker text-slate-50">
+        <body>
           {GTM_ID && (
             <noscript>
               <iframe

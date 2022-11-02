@@ -13,7 +13,7 @@ const PostCard = ({ post }: { post: Post }) => {
         className="transition-all hover:opacity-75"
       >
         {/* thumbnail */}
-        <figure className="relative h-0 bg-slate-50 pt-[46.29%]">
+        <figure className="relative h-0 bg-slate-50 pt-[46.29%] overflow-hidden rounded">
           <Twemoji
             className="absolute inset-0 m-auto h-16 w-16 text-7xl"
             onlyEmojiClassName="twemoji"
@@ -21,12 +21,12 @@ const PostCard = ({ post }: { post: Post }) => {
             text={post.thumbnail || '☕'}
           />
         </figure>
-        <div className="my-6 flex items-center justify-between text-xs tracking-widest">
+        <div className="my-6 flex items-center justify-between text-xs">
           {/* created_time */}
           <time dateTime={post.date}>{post.date}</time>
         </div>
         {/* title */}
-        <h2 className="text-lg tracking-wider">{post.title}</h2>
+        <h2 className="text-lg">{post.title}</h2>
       </Link>
     </article>
   )
