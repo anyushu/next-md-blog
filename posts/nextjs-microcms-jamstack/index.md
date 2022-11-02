@@ -1,6 +1,6 @@
 ---
-title: "Next.js x microCMS で作る Jamstack なブログサイト"
-description: "Next.js x microCMS で作る Jamstack なブログサイト"
+title: "Next.js x microCMSで作るJamstackなブログサイト"
+description: "Next.js x microCMSで作るJamstackなブログサイト"
 date: "2022-02-10"
 thumbnail: "🤖"
 ---

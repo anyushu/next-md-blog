@@ -2,12 +2,12 @@ import type { InferGetStaticPropsType, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import React from 'react'
 
+import { getAllPosts } from '@/api/post'
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
 import Heading from '@/components/atoms/Heading'
 import Hero from '@/components/organisms/Hero'
 import Posts from '@/components/templates/Posts'
-import { getAllPosts } from '@/libs/post'
 import { PER_PAGE } from '@/utils/blog-helper'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
@@ -28,7 +28,7 @@ const Home: NextPage<Props> = ({ allPosts }) => {
       />
       <Hero />
       <Container>
-        <Heading h={2} className="mb-6 tracking-wider">
+        <Heading h={2} className="mb-6">
           Latest posts
         </Heading>
         <Posts posts={allPosts} />

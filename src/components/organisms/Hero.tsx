@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <Container className="container mx-auto mb-12 px-3 md:mb-24 md:px-0">
       <Heading h={2} className="leading-relaxed tracking-wider">
-        Hi, I am a front-end engineer.
+        Hi there, I am a web developer.
       </Heading>
     </Container>
   )

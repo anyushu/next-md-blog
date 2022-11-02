@@ -12,12 +12,12 @@ import { TwitterTweetEmbed } from 'react-twitter-embed'
 import YouTube from 'react-youtube'
 import remarkGfm from 'remark-gfm'
 
+import { getAllPosts, getPostBySlug } from '@/api/post'
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
 import Breadcrumb from '@/components/molecules/Breadcrumb'
 import PostHeader from '@/components/molecules/PostHeader'
 import SocialShare from '@/components/organisms/SocialShare'
-import { getAllPosts, getPostBySlug } from '@/libs/post'
 import { ogpImageUrl } from '@/utils/blog-helper'
 import { siteTitle } from '@/utils/next-seo.config'
 
@@ -111,8 +111,7 @@ const Post: NextPage<Props> = ({ post }) => {
         <article>
           <PostHeader post={post} />
           <ReactMarkdown
-            // eslint-disable-next-line tailwindcss/no-custom-classname
-            className="md:prose-md prose prose-invert mt-12 w-full max-w-none leading-relaxed tracking-wider prose-pre:m-0 prose-pre:p-0 prose-pre:leading-normal prose-pre:tracking-normal md:mt-24 md:px-24 lg:prose-lg"
+            className="prose mx-auto max-w-screen-lg mt-24"
             remarkPlugins={[remarkGfm]}
             components={{
               img: CustomImage,
@@ -128,7 +127,7 @@ const Post: NextPage<Props> = ({ post }) => {
         <div className="mt-16 md:mt-24">
           <SocialShare postUrl={postUrl} postTitle={postTitle} />
         </div>
-        <div className="mt-16 text-center tracking-widest md:mt-24">
+        <div className="mt-16 text-center md:mt-24">
           <Button href="/">Back Home</Button>
         </div>
         <div className="mt-16 md:mt-24">
@@ -189,7 +188,7 @@ const CodeBlock = (props: CodeProps) => {
   }
 
   return (
-    <pre className="!p-0 drop-shadow-lg">
+    <pre className="!p-0 !bg-transparent border border-neutral rounded-xl overflow-hidden">
       <SyntaxHighlighter
         style={dracula}
         PreTag="div"

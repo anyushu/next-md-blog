@@ -2,11 +2,11 @@ import type { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, Ne
 import { NextSeo } from 'next-seo'
 import React from 'react'
 
+import { getAllPosts } from '@/api/post'
 import Container from '@/components/atoms/Container'
 import Heading from '@/components/atoms/Heading'
 import PageNavi from '@/components/molecules/PageNavi'
 import Posts from '@/components/templates/Posts'
-import { getAllPosts } from '@/libs/post'
 import { PER_PAGE } from '@/utils/blog-helper'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
