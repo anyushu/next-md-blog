@@ -189,7 +189,7 @@ const CodeBlock = (props: CodeProps) => {
   }
 
   return (
-    <pre className="border border-dark">
+    <pre className="border-dark border">
       <SyntaxHighlighter
         style={dracula}
         PreTag="div"

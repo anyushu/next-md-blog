@@ -11,7 +11,7 @@ const Button = ({ href, children }: Props) => {
     return (
       <Link
         href={href}
-        className="inline-block border border-pink py-3 px-8 leading-4 text-pink transition-all hover:bg-pink hover:text-slate-50"
+        className="border-pink text-pink hover:bg-pink inline-block border py-3 px-8 leading-4 transition-all hover:text-slate-50"
       >
         {children}
       </Link>
@@ -20,7 +20,7 @@ const Button = ({ href, children }: Props) => {
     return (
       <button
         type="button"
-        className="inline-block border border-pink py-3 px-8 leading-4 text-pink transition-all hover:bg-pink hover:text-slate-50"
+        className="border-pink text-pink hover:bg-pink inline-block border py-3 px-8 leading-4 transition-all hover:text-slate-50"
       >
         {children}
       </button>
