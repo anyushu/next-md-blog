@@ -9,7 +9,7 @@ const tailwindcssConfig = {
       },
     },
   },
-  plugins: [require('daisyui'), require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography'), require('daisyui')],
   daisyui: {
     themes: ['dracula'],
   },

@@ -1,65 +1,17 @@
 import { NextPage, InferGetStaticPropsType, GetStaticPropsContext, GetStaticPaths } from 'next'
 import { NextSeo, ArticleJsonLd, BreadcrumbJsonLd } from 'next-seo'
 import ErrorPage from 'next/error'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
-import React from 'react'
-import ReactMarkdown from 'react-markdown'
-import type { CodeProps } from 'react-markdown/lib/ast-to-react'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import dracula from 'react-syntax-highlighter/dist/cjs/styles/prism/dracula'
-import { TwitterTweetEmbed } from 'react-twitter-embed'
-import YouTube from 'react-youtube'
-import remarkGfm from 'remark-gfm'
 
 import { getAllPosts, getPostBySlug } from '@/api/post'
-import Button from '@/components/atoms/Button'
-import Container from '@/components/atoms/Container'
+import { Button, Container } from '@/components/atoms'
 import Breadcrumb from '@/components/molecules/Breadcrumb'
-import PostHeader from '@/components/molecules/PostHeader'
+import { PostBody, PostHeader } from '@/components/molecules/Post'
 import SocialShare from '@/components/organisms/SocialShare'
 import { ogpImageUrl } from '@/utils/blog-helper'
 import { siteTitle } from '@/utils/next-seo.config'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
-
-/**
- * get post slug
- */
-export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts(['slug'])
-  return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      }
-    }),
-    fallback: false,
-  }
-}
-
-/**
- * get post content
- */
-export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
-  const post = getPostBySlug(params?.slug as string, [
-    'slug',
-    'content',
-    'title',
-    'description',
-    'date',
-    'thumbnail',
-  ])
-  return {
-    props: {
-      post: {
-        ...post,
-      },
-    },
-  }
-}
 
 const Post: NextPage<Props> = ({ post }) => {
   const router = useRouter()
@@ -110,19 +62,7 @@ const Post: NextPage<Props> = ({ post }) => {
       <Container>
         <article>
           <PostHeader post={post} />
-          <ReactMarkdown
-            className="prose mx-auto max-w-screen-lg mt-24"
-            remarkPlugins={[remarkGfm]}
-            components={{
-              img: CustomImage,
-              pre({ ...props }) {
-                return <>{props.children}</>
-              },
-              code: CodeBlock,
-            }}
-          >
-            {post.content}
-          </ReactMarkdown>
+          <PostBody post={post} />
         </article>
         <div className="mt-16 md:mt-24">
           <SocialShare postUrl={postUrl} postTitle={postTitle} />
@@ -148,93 +88,39 @@ const Post: NextPage<Props> = ({ post }) => {
 export default Post
 
 /**
- * CodeBlock
+ * get post slug
  */
-const CodeBlock = (props: CodeProps) => {
-  const match = /language-(\w+)/.exec(props.className || '')
-
-  if (!match) {
-    return <></>
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = getAllPosts(['slug'])
+  return {
+    paths: posts.map((post) => {
+      return {
+        params: {
+          slug: post.slug,
+        },
+      }
+    }),
+    fallback: false,
   }
-
-  if (match[1] == 'twitter') {
-    return (
-      <div className="my-5">
-        <TwitterTweetEmbed tweetId={String(props.children).replace(/\n$/, '')} />
-      </div>
-    )
-  }
-
-  if (match[1] == 'youtube') {
-    return (
-      <div className="relative my-5 h-0 w-full pt-[56.25%]">
-        <YouTube
-          className="absolute top-0 left-0 h-full w-full"
-          videoId={String(props.children).replace(/\n$/, '')}
-        />
-      </div>
-    )
-  }
-
-  if (match[1] == 'iframe') {
-    return (
-      <div className="relative my-5 h-0 w-full p-1 pt-[56.25%]">
-        <iframe
-          className="absolute top-0 left-0 h-full w-full"
-          src={String(props.children).replace(/\n$/, '')}
-        />
-      </div>
-    )
-  }
-
-  return (
-    <pre className="!p-0 !bg-transparent border border-neutral rounded-xl overflow-hidden">
-      <SyntaxHighlighter
-        style={dracula}
-        PreTag="div"
-        language={match[1]}
-        showLineNumbers={true}
-        customStyle={{
-          margin: 0,
-        }}
-      >
-        {String(props.children).replace(/\n$/, '')}
-      </SyntaxHighlighter>
-    </pre>
-  )
 }
 
 /**
- * CustomImage
+ * get post content
  */
-const CustomImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
-  if (!props.src) {
-    return <></>
+export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
+  const post = getPostBySlug(params?.slug as string, [
+    'slug',
+    'content',
+    'title',
+    'description',
+    'date',
+    'thumbnail',
+  ])
+  return {
+    props: {
+      post: {
+        ...post,
+      },
+    },
   }
-
-  if (props.alt) {
-    const imageSizeIndex = props.alt.indexOf('?')
-    const imageAlt = props.alt.substring(0, imageSizeIndex)
-    const imageSizeStr = props.alt.substring(imageSizeIndex + 1)
-    const imageWidth = imageSizeStr.substring(
-      imageSizeStr.indexOf('w=') + 2,
-      imageSizeStr.indexOf('&'),
-    )
-    const imageHeight = imageSizeStr.substring(imageSizeStr.indexOf('h=') + 2)
-
-    return (
-      <Image
-        src={props.src}
-        alt={imageAlt}
-        width={Number(imageWidth)}
-        height={Number(imageHeight)}
-      />
-    )
-  }
-
-  return (
-    <span className="relative block h-0 w-full pt-[56.25%]">
-      <Image src={props.src} alt={props.alt ? props.alt : ''} layout="fill" objectFit="contain" />
-    </span>
-  )
 }

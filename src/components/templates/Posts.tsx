@@ -1,4 +1,4 @@
-import PostCard from '@/components/molecules/PostCard'
+import { PostCard } from '@/components/molecules/Post'
 import type { Post } from '@/types/post'
 
 type PostsProps = {
