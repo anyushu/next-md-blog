@@ -61,8 +61,8 @@ const Post: NextPage<Props> = ({ post }) => {
 
       <Container>
         <article>
-          <PostHeader post={post} />
-          <PostBody post={post} />
+          <PostHeader title={post.title} publishDate={post.date} />
+          <PostBody body={post.content} />
         </article>
         <div className="mt-16 md:mt-24">
           <SocialShare postUrl={postUrl} postTitle={postTitle} />
