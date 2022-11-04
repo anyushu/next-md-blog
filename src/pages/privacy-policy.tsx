@@ -9,7 +9,7 @@ const PrivacyPolicy: NextPage = () => {
       <NextSeo title="プライバシーポリシー" />
 
       <Container>
-        <Heading h={2} className="text-center tracking-wider">
+        <Heading h={1} className="text-center tracking-wider">
           PrivacyPolicy
         </Heading>
 
@@ -19,15 +19,15 @@ const PrivacyPolicy: NextPage = () => {
             {process.env.NEXT_PUBLIC_SITE_URL}）
             （以下、「当サイト」とします。）の各種サービス（当サイトによる情報提供、各種お問合せの受付等）において、当サイトの訪問者（以下、「訪問者」とします。）の個人情報もしくはそれに準ずる情報を取り扱う際に、当サイトが遵守する方針を示したものです。
           </p>
-          <Heading h={3}>1．基本方針</Heading>
+          <Heading h={2}>1．基本方針</Heading>
           <p>
             当サイトは、個人情報の重要性を認識し、個人情報を保護することが社会的責務であると考え、個人情報に関する法令を遵守し、当サイトで取扱う個人情報の取得、利用、管理を適正に行います。当サイトで収集した情報は、利用目的の範囲内で適切に取り扱います。
           </p>
-          <Heading h={3}>2．適用範囲</Heading>
+          <Heading h={2}>2．適用範囲</Heading>
           <p>本プライバシーポリシーは、当サイトにおいてのみ適用されます。</p>
-          <Heading h={3}>3．個人情報の取得と利用目的</Heading>
+          <Heading h={2}>3．個人情報の取得と利用目的</Heading>
           <p>当サイトで取得する訪問者の個人情報と利用目的、保存期間等は下記の通りです。</p>
-          <Heading h={4}>3-1．コメントを残した際に個人情報を取得します</Heading>
+          <Heading h={3}>3-1．コメントを残した際に個人情報を取得します</Heading>
           <p>当サイトでは、訪問者が当サイトにコメントを残した際に、以下の個人情報を取得します。</p>
           <ol>
             <li>コメントフォームに表示されている名前（HN）</li>
@@ -48,7 +48,7 @@ const PrivacyPolicy: NextPage = () => {
             Gravatar
             サービスを使用中かどうか確認するため同サービスに提供されることがあります。同サービスのプライバシーポリシーを確認する場合は、こちらをクリックしてください。
           </p>
-          <Heading h={5} className="font-bold">
+          <Heading h={4} className="font-bold">
             3-1-1．利用目的について
           </Heading>
           <p>
@@ -57,7 +57,7 @@ const PrivacyPolicy: NextPage = () => {
           <p>
             コメントが当サイトの管理人に承認されると、プロフィール画像がコメントとともに一般公開されます。
           </p>
-          <Heading h={5} className="font-bold">
+          <Heading h={4} className="font-bold">
             3-1-2．保存期間について
           </Heading>
           <p>当サイトに残されたコメントは、コメントとそのメタデータを３年間保存します。</p>
@@ -66,7 +66,7 @@ const PrivacyPolicy: NextPage = () => {
             訪問者は当サイトにコメントを残す際に、お名前、メールアドレス、お持ちのサイト情報（任意）を
             ブラウザに保存するかどうかを選択できます。
           </p>
-          <Heading h={5} className="font-bold">
+          <Heading h={4} className="font-bold">
             3-1-3．当サイトがコメントに対してできることについて
           </Heading>
           <p>
@@ -75,7 +75,7 @@ const PrivacyPolicy: NextPage = () => {
           <p>
             また、訪問者から訪問者本人の個人情報を「消去してほしい」というリクエストにも応えることが出来ます。これには、管理や法律、セキュリティ目的のために保持する義務がある情報は含まれません。また消去する際も、訪問者のメールアドレスに確認のメールが送られます。
           </p>
-          <Heading h={4}>3-2．お問い合せされた個人情報を取得します</Heading>
+          <Heading h={3}>3-2．お問い合せされた個人情報を取得します</Heading>
           <p>当サイトではお問い合わせフォームを設けています。</p>
           <p>
             訪問者がそのお問い合わせフォームから問い合わせをされた際に入力された、以下の個人情報を取得します。
@@ -85,7 +85,7 @@ const PrivacyPolicy: NextPage = () => {
             <li>お問い合わせフォームに入力されたメールアドレス</li>
             <li>お問い合わせフォームに入力されたお問合せ内容</li>
           </ol>
-          <Heading h={5} className="font-bold">
+          <Heading h={4} className="font-bold">
             3-2-1．利用目的について
           </Heading>
           <p>
@@ -94,11 +94,11 @@ const PrivacyPolicy: NextPage = () => {
           <p>
             また、当サイト内で「このようなお問合せがありました」と紹介させていただく場合もあります。
           </p>
-          <Heading h={5} className="font-bold">
+          <Heading h={4} className="font-bold">
             3-2-2．保存期間について
           </Heading>
           <p>お問い合わせフォームに入力された個人情報は、3年間保存します。</p>
-          <Heading h={5} className="font-bold">
+          <Heading h={4} className="font-bold">
             3-2-3．個人情報取得の同意について
           </Heading>
           <p>
@@ -107,12 +107,12 @@ const PrivacyPolicy: NextPage = () => {
           <p>
             お問い合わせをされた時点で、その訪問者は当プライバシーポリシーに同意されたとみなします。
           </p>
-          <Heading h={4}>3-3．Cookieによる個人情報の取得</Heading>
+          <Heading h={3}>3-3．Cookieによる個人情報の取得</Heading>
           <p>当サイトは、訪問者のコンピュータにCookieを送信することがあります。</p>
           <p>
             Cookie（クッキー）とは、ウェブサイトを利用したときに、ブラウザとサーバーとの間で送受信した利用履歴や入力内容などを、訪問者のコンピュータにファイルとして保存しておく仕組みです。
           </p>
-          <Heading h={5} className="font-bold">
+          <Heading h={4} className="font-bold">
             3-3-1．利用目的について
           </Heading>
           <p>訪問者の当サイト閲覧時の利便性を高めるためです。</p>
@@ -125,11 +125,11 @@ const PrivacyPolicy: NextPage = () => {
           <p>
             なお、訪問者のブラウザはプライバシー保護のため、そのウェブサイトのサーバーが送受信したCookieのみを送信します。
           </p>
-          <Heading h={5} className="font-bold">
+          <Heading h={4} className="font-bold">
             3-3-2．保存期間について
           </Heading>
           <p>当サイトに残されたコメントの Cookie は、1年間保存されます。</p>
-          <Heading h={5} className="font-bold">
+          <Heading h={4} className="font-bold">
             3-3-3．第三者によるCookie情報の取得について
           </Heading>
           <p>
@@ -138,13 +138,13 @@ const PrivacyPolicy: NextPage = () => {
           <p>
             当該第三者によって取得されたCookie情報等は、当該第三者のプライバシーポリシーに従って取り扱われます。
           </p>
-          <Heading h={5} className="font-bold">
+          <Heading h={4} className="font-bold">
             3-3-4．第三者へのCooke情報等の広告配信の利用停止について
           </Heading>
           <p>
             訪問者は、当該第三者のウェブサイト内に設けられたオプトアウト（個人情報を第三者に提供することを停止すること）ページにアクセスして、当該第三者によるCookie情報等の広告配信への利用を停止することができます。
           </p>
-          <Heading h={5} className="font-bold">
+          <Heading h={4} className="font-bold">
             3-3-5．Cookie情報の送受信の許可・拒否について
           </Heading>
           <p>
@@ -153,36 +153,36 @@ const PrivacyPolicy: NextPage = () => {
           <p>
             すべてのCookieを拒否する設定を選択されますと、認証が必要なサービスを受けられなくなる等、インターネット上の各種サービスの利用上、制約を受ける場合がありますのでご注意ください。
           </p>
-          <Heading h={3}>4．個人情報の管理</Heading>
+          <Heading h={2}>4．個人情報の管理</Heading>
           <p>当サイトは、訪問者からご提供いただいた情報の管理について、以下を徹底します。</p>
-          <Heading h={4}>4-1. 情報の正確性の確保</Heading>
+          <Heading h={3}>4-1. 情報の正確性の確保</Heading>
           <p>
             訪問者からご提供いただいた情報については、常に正確かつ最新の情報となるよう努めます。
           </p>
-          <Heading h={4}>4-2. 安全管理措置</Heading>
+          <Heading h={3}>4-2. 安全管理措置</Heading>
           <p>
             当サイトは、個人情報の漏えいや滅失又は棄損を防止するために、適切なセキリュティ対策を実施して個人情報を保護します。
           </p>
-          <Heading h={4}>4-3. 個人情報の廃棄</Heading>
+          <Heading h={3}>4-3. 個人情報の廃棄</Heading>
           <p>個人情報が不要となった場合には、すみやかに廃棄します。</p>
-          <Heading h={4}>4-4. 個人情報の開示、訂正、追加、削除、利用停止</Heading>
+          <Heading h={3}>4-4. 個人情報の開示、訂正、追加、削除、利用停止</Heading>
           <p>
             訪問者ご本人からの個人情報の開示、訂正、追加、削除、利用停止のご希望の場合には、ご本人であることを確認させていただいた上、速やかに対応させていただきます。
           </p>
           <p>上記を希望される場合は、お問い合わせフォームよりご連絡ください。</p>
-          <Heading h={3}>5．個人情報の第三者への提供について</Heading>
+          <Heading h={2}>5．個人情報の第三者への提供について</Heading>
           <p>
             当サイトは、訪問者からご提供いただいた個人情報を、訪問者本人の同意を得ることなく第三者に提供することはありません。また、今後第三者提供を行うことになった場合には、提供する情報と提供目的などを提示し、訪問者から同意を得た場合のみ第三者提供を行います。
           </p>
-          <Heading h={3}>6．未成年の個人情報について</Heading>
+          <Heading h={2}>6．未成年の個人情報について</Heading>
           <p>
             未成年者が当サイトにコメントをしたり、お問い合わせフォームから問い合わせをされたりする場合は必ず親権者の同意を得るものとし、コメントやお問い合わせをされた時点で、当プライバシーポリシーに対して親権者の同意があるものとみなします。
           </p>
-          <Heading h={3}>7．お問い合わせ先</Heading>
+          <Heading h={2}>7．お問い合わせ先</Heading>
           <p>当サイト、又は個人情報の取扱いに関しては、お問い合わせフォームよりご連絡ください。</p>
           当サイト運営者：{process.env.NEXT_PUBLIC_SITE_NAME}
           連絡先：anyushu0526@gmail.com
-          <Heading h={3}>8．アクセス解析ツールについて</Heading>
+          <Heading h={2}>8．アクセス解析ツールについて</Heading>
           <p>
             当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。
           </p>
@@ -197,7 +197,7 @@ const PrivacyPolicy: NextPage = () => {
             Google パートナーのサイトやアプリを使用する際の Google
             によるデータ使用」に関して確認したい場合は、ここをクリックしてください。
           </p>
-          <Heading h={3}>9．第三者配信の広告サービスについて</Heading>
+          <Heading h={2}>9．第三者配信の広告サービスについて</Heading>
           <p>
             当サイトは、第三者配信の広告サービス「Google
             Adsense（グーグルアドセンス）」を利用しています。
@@ -216,14 +216,14 @@ const PrivacyPolicy: NextPage = () => {
           <p>
             Googleによって広告の第三者配信が認められている広告配信事業者の詳細は、ここをクリックしてください。
           </p>
-          <Heading h={3}>10．Amazonの広告配信について</Heading>
+          <Heading h={2}>10．Amazonの広告配信について</Heading>
           <p>
             Amazon.co.jpを宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定されたアフィリエイトプログラムである、Amazonアソシエイト・プログラムの参加者です。
           </p>
           <p>
             第三者（Amazonや他の広告掲載者）がコンテンツおよび宣伝を提供し、訪問者から直接情報を収集し、訪問者のブラウザにCookieを設定したり、認識したりする場合があります。
           </p>
-          <Heading h={3}>11．プライバシーポリシーの変更について</Heading>
+          <Heading h={2}>11．プライバシーポリシーの変更について</Heading>
           <p>
             当サイトは、個人情報に関して適用される日本の法令を遵守するとともに、本プライバシーポリシーの内容を適宜見直しその改善に努めます。修正された最新のプライバシーポリシーは常に本ページにて開示されます。
           </p>
