@@ -1,5 +1,7 @@
-import { ogpImageUrl } from '@/utils/blog-helper'
-
+/**
+ * site title
+ */
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'
 /**
  * site title
  */
@@ -15,15 +17,15 @@ export const defaultSeo = {
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
-    site_name: process.env.NEXT_PUBLIC_SITE_NAME,
-    url: process.env.NEXT_PUBLIC_SITE_URL,
+    site_name: siteTitle,
+    url: siteUrl,
     title: siteTitle,
     images: [
       {
-        url: ogpImageUrl(),
+        url: `${siteUrl}/api/og`,
         width: 1200,
         height: 630,
-        alt: process.env.NEXT_PUBLIC_SITE_NAME,
+        alt: siteTitle,
       },
     ],
   },

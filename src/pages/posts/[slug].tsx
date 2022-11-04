@@ -8,8 +8,7 @@ import { Button, Container } from '@/components/atoms'
 import Breadcrumb from '@/components/molecules/Breadcrumb'
 import { PostBody, PostHeader } from '@/components/molecules/Post'
 import SocialShare from '@/components/organisms/SocialShare'
-import { ogpImageUrl } from '@/utils/blog-helper'
-import { siteTitle } from '@/utils/next-seo.config'
+import { siteTitle, siteUrl } from '@/utils/next-seo.config'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -19,7 +18,8 @@ const Post: NextPage<Props> = ({ post }) => {
     return <ErrorPage statusCode={404} />
   }
 
-  const postUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/posts/${post.slug}`
+  const postUrl = `${siteUrl}/posts/${post.slug}`
+  const ogpImageUrl = `${siteUrl}/api/og?title=${post.thumbnail}`
   const postTitle = post.title + ' | ' + siteTitle
 
   return (
@@ -31,13 +31,21 @@ const Post: NextPage<Props> = ({ post }) => {
           url: postUrl,
           title: postTitle,
           description: post.description,
+          images: [
+            {
+              url: ogpImageUrl,
+              width: 1200,
+              height: 630,
+              alt: postTitle,
+            },
+          ],
         }}
       />
       <ArticleJsonLd
         type="Blog"
+        images={[ogpImageUrl]}
         url={postUrl}
         title={postTitle}
-        images={[ogpImageUrl()]}
         datePublished={post.date}
         dateModified={post.date}
         authorName={['Anyushu']}
@@ -49,7 +57,7 @@ const Post: NextPage<Props> = ({ post }) => {
           {
             position: 1,
             name: 'HOME',
-            item: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+            item: siteUrl,
           },
           {
             position: 2,
