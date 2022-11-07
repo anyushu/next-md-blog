@@ -8,7 +8,7 @@ import remarkGfm from 'remark-gfm'
 const PostBody = ({ body }: { body: string }) => {
   return (
     <ReactMarkdown
-      className="prose mx-auto max-w-screen-lg mt-24"
+      className="prose mx-auto max-w-screen-lg mt-16 md:mt-24"
       remarkPlugins={[remarkGfm]}
       components={{
         img: CustomImage,

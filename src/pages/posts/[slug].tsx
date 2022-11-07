@@ -69,7 +69,7 @@ const Post: NextPage<Props> = ({ post }) => {
 
       <Container>
         <article>
-          <PostHeader title={post.title} publishDate={post.date} />
+          <PostHeader title={post.title} publishDate={post.date} thumbnail={post.thumbnail} />
           <PostBody body={post.content} />
         </article>
         <div className="mt-16 md:mt-24">
