@@ -1,5 +1,4 @@
-import Container from '@/components/atoms/Container'
-import Heading from '@/components/atoms/Heading'
+import { Container, Heading } from '@/components/atoms'
 
 const Hero = () => {
   return (

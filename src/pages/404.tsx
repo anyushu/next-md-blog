@@ -1,8 +1,7 @@
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
-import Button from '@/components/atoms/Button'
-import Container from '@/components/atoms/Container'
+import { Button, Container } from '@/components/atoms'
 
 const Custom404: NextPage = () => {
   return (

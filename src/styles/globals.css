@@ -7,5 +7,5 @@
 }
 
 a:not(.btn):hover {
-  @apply text-cyan-300;
+  @apply text-cyan-300 no-underline;
 }

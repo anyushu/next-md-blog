@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://anyushu.com
-
-# Sitemaps
-Sitemap: https://anyushu.com/sitemap.xml

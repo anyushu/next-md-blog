@@ -1,14 +1,19 @@
 import Link from 'next/link'
 import { Twemoji } from 'react-emoji-render'
 
-import { Post } from '@/types/post'
+export type PostCardProps = {
+  slug: string
+  title: string
+  thumbnail?: string
+  publishDate: string
+}
 
-const PostCard = ({ post }: { post: Post }) => {
+const PostCard = ({ slug, title, thumbnail, publishDate }: PostCardProps) => {
   return (
     <article className="mb-6 md:mb-12">
       <Link
         href="/posts/[slug]"
-        as={`/posts/${post.slug}`}
+        as={`/posts/${slug}`}
         passHref
         className="transition-all hover:opacity-75"
       >
@@ -18,15 +23,15 @@ const PostCard = ({ post }: { post: Post }) => {
             className="absolute inset-0 m-auto h-16 w-16 text-7xl"
             onlyEmojiClassName="twemoji"
             svg
-            text={post.thumbnail || '☕'}
+            text={thumbnail || '☕'}
           />
         </figure>
         <div className="my-6 flex items-center justify-between text-xs">
           {/* created_time */}
-          <time dateTime={post.date}>{post.date}</time>
+          <time dateTime={publishDate}>{publishDate}</time>
         </div>
         {/* title */}
-        <h2 className="text-lg">{post.title}</h2>
+        <h2 className="text-lg">{title}</h2>
       </Link>
     </article>
   )
