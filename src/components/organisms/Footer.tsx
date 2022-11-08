@@ -4,7 +4,7 @@ import { siteTitle } from '@/utils/next-seo.config'
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-10 bg-neutral text-neutral-content mt-24">
+    <footer className="footer footer-center p-10 bg-neutral mt-24">
       <div className="grid grid-flow-col gap-4">
         <Link href="/">Home</Link>
         <Link

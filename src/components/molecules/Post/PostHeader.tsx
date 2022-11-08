@@ -1,6 +1,7 @@
 import { Twemoji } from 'react-emoji-render'
 
 import Heading from '@/components/atoms/Heading'
+import { useBudouX } from '@/hooks/useBudouX'
 
 export type PostHeaderPorps = {
   title: string
@@ -9,8 +10,9 @@ export type PostHeaderPorps = {
 }
 
 const PostHeader = ({ title, publishDate, thumbnail }: PostHeaderPorps) => {
+  const { newLineOfText } = useBudouX()
   return (
-    <>
+    <div className="prose mx-auto">
       <figure className="mb-12">
         <Twemoji
           className="block w-16 h-16 my-0 mx-auto drop-shadow"
@@ -20,8 +22,8 @@ const PostHeader = ({ title, publishDate, thumbnail }: PostHeaderPorps) => {
         />
       </figure>
       <div id="post-title" className="mb-6">
-        <Heading h={2} className="text-center">
-          {title}
+        <Heading h={2} className="text-center font-normal">
+          {newLineOfText(title)}
         </Heading>
       </div>
       <div className="flex justify-center items-center">
@@ -31,7 +33,7 @@ const PostHeader = ({ title, publishDate, thumbnail }: PostHeaderPorps) => {
         </time>
       </div>
       <hr className="mx-auto mt-12 max-w-xs border-neutral-focus" />
-    </>
+    </div>
   )
 }
 
