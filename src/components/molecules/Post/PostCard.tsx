@@ -15,23 +15,18 @@ const PostCard = ({ slug, title, thumbnail, publishDate }: PostCardProps) => {
         href="/posts/[slug]"
         as={`/posts/${slug}`}
         passHref
-        className="transition-all hover:opacity-75"
+        className="block text-center bg-neutral rounded-3xl p-6 transition-all hover:opacity-75 hover:!text-neutral-content"
       >
-        {/* thumbnail */}
-        <figure className="relative h-0 bg-slate-50 pt-[46.29%] overflow-hidden rounded">
-          <Twemoji
-            className="absolute inset-0 m-auto h-16 w-16 text-7xl"
-            onlyEmojiClassName="twemoji"
-            svg
-            text={thumbnail || '☕'}
-          />
-        </figure>
-        <div className="my-6 flex items-center justify-between text-xs">
-          {/* created_time */}
-          <time dateTime={publishDate}>{publishDate}</time>
-        </div>
-        {/* title */}
-        <h2 className="text-lg">{title}</h2>
+        <Twemoji
+          className="block h-16 w-16 m-auto"
+          onlyEmojiClassName="twemoji"
+          svg
+          text={thumbnail || '☕'}
+        />
+        <h2 className="md:text-lg mt-6">{title}</h2>
+        <time className="block text-sm mt-3" dateTime={publishDate}>
+          {new Date(publishDate).toDateString()}
+        </time>
       </Link>
     </article>
   )

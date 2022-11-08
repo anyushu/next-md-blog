@@ -33,6 +33,7 @@
     "@typescript-eslint/parser": "^5.42.0",
     "@vercel/og": "^0.0.20",
     "autoprefixer": "^10.4.13",
+    "budoux": "^0.2.1",
     "cross-env": "^7.0.3",
     "cssnano": "^5.1.14",
     "daisyui": "^2.38.0",
