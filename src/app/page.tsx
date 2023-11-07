@@ -1,5 +1,6 @@
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
+import Link from 'next/link'
 
 const Home = () => {
   const posts = allPosts.sort((a: { date: string | number | Date }, b: { date: string | number | Date }) =>
@@ -9,7 +10,9 @@ const Home = () => {
     <div>
       <ul>
         {posts.map((post) => (
-          <li key={post._id}>{post.title}</li>
+          <li key={post._id}>
+            <Link href={`${post.url}`}>{post.title}</Link>
+          </li>
         ))}
       </ul>
     </div>
