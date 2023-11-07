@@ -1,6 +1,10 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { GithubIcon, MenuIcon } from 'lucide-react'
+import { GithubIcon, MenuIcon, MoonIcon, SunIcon } from 'lucide-react'
+import { useTheme } from 'next-themes'
 import Link from 'next/link'
 
 const Header = () => {
@@ -12,7 +16,7 @@ const Header = () => {
             <span className="inline-block font-bold">anyushu</span>
           </a>
           <nav className="flex items-center space-x-6 text-sm font-medium">
-            <Link className="text-foreground/60 transition-colors hover:text-foreground/80" href="/about">
+            <Link className="text-muted-foreground hover:text-foreground/80" href="/about">
               About
             </Link>
           </nav>
@@ -26,6 +30,7 @@ const Header = () => {
                 <span className="sr-only">GitHub</span>
               </Link>
             </Button>
+            <ToggleTheme />
           </nav>
         </div>
       </div>
@@ -52,5 +57,26 @@ const MobileMenu = () => {
         </ul>
       </SheetContent>
     </Sheet>
+  )
+}
+
+const ToggleTheme = () => {
+  const { setTheme } = useTheme()
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="icon">
+          <SunIcon className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <MoonIcon className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <span className="sr-only">Toggle theme</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
