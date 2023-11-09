@@ -1,8 +1,8 @@
 ---
 title: Hello World
-date: '2023-01-01'
+date: '2022-01-01'
 description: 'This is my first blog post!'
-emoji: '👋'
+emoji: '🙋‍♂️'
 ---
 
 Hello World!Hello World!Hello World!Hello World!Hello World!
