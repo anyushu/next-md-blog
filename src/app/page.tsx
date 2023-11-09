@@ -1,7 +1,7 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { allPosts } from 'contentlayer/generated'
-import { compareDesc, format } from 'date-fns'
+import { compareDesc, format, parseISO } from 'date-fns'
 import Link from 'next/link'
 
 const Home = () => {
@@ -34,7 +34,7 @@ const Home = () => {
                   <p className="text-lg">{post.title}</p>
                 </CardContent>
                 <CardFooter>
-                  <time className="text-sm text-muted-foreground">{format(new Date(post.date), 'yyy.MM.dd')}</time>
+                  <time className="text-sm text-muted-foreground">{format(parseISO(post.date), 'LLLL d, yyyy')}</time>
                 </CardFooter>
               </Card>
             </Link>
