@@ -6,17 +6,6 @@
 - contentlayer
 - shadcn/ui
 
-## Features
-
-- [x] markdown blog
-- [x] dark mode
-- [x] code highlight
-- [ ] toc
-- [ ] search
-- [ ] sitemap
-- [x] google analytics
-- [ ] pwa
-
 ## How to use
 
 ```bash
