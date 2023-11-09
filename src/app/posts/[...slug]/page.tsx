@@ -1,6 +1,7 @@
 import { Separator } from '@/components/ui/separator'
 import { allPosts } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
+import parse from 'html-react-parser'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post.slugAsParams.split('/') }))
 
@@ -33,7 +34,7 @@ const Postpage = ({ params }: { params: { slug: string[] } }) => {
         <h1 className="text-3xl font-bold">{post.title}</h1>
       </div>
       <Separator className="my-12" />
-      <div className="prose max-w-none dark:prose-invert" dangerouslySetInnerHTML={{ __html: post.body.html }} />
+      <div className="prose max-w-none dark:prose-invert">{parse(post.body.html)}</div>
     </article>
   )
 }

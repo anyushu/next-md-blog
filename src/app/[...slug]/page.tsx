@@ -1,4 +1,5 @@
 import { allPages } from 'contentlayer/generated'
+import parse from 'html-react-parser'
 
 export const generateStaticParams = async () => allPages.map((page) => ({ slug: page.slugAsParams.split('/') }))
 
@@ -25,7 +26,7 @@ const Page = ({ params }: { params: { slug: string[] } }) => {
     <section className="mx-auto max-w-screen-md py-8">
       <div className="prose max-w-none dark:prose-invert">
         <h1>{page.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: page.body.html }} />
+        {parse(page.body.html)}
       </div>
     </section>
   )
