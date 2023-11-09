@@ -1,21 +1,10 @@
 {
-  "editor.tabSize": 2,
-  "editor.detectIndentation": false,
-  "search.exclude": {
-    "package-lock.json": true,
-    "yarn.lock": true
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": true,
+    "source.organizeImports": true
   },
+  "prettier.configPath": ".prettierrc.json",
   "typescript.tsdk": "node_modules/typescript/lib",
-  // tailwindcss
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "editor.quickSuggestions": {
-    "strings": true
-  }
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
