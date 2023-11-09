@@ -2,18 +2,26 @@ import { Separator } from '@/components/ui/separator'
 import { allPosts } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 
-export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
+export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post.slugAsParams.split('/') }))
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
-  return { title: post.title + ' - anyushu' }
+export const generateMetadata = ({ params }: { params: { slug: string[] } }) => {
+  const slug = params?.slug?.join('/')
+  const post = allPosts.find((post) => post.slugAsParams === slug)
+
+  if (!post) {
+    return
+  }
+
+  return { title: post.title + ' - anyushu', description: post.description }
 }
 
-const Postpage = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+const Postpage = ({ params }: { params: { slug: string[] } }) => {
+  const slug = params?.slug?.join('/')
+  const post = allPosts.find((post) => post.slugAsParams === slug)
 
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  if (!post) {
+    return <></>
+  }
 
   return (
     <article className="mx-auto max-w-screen-md py-8">

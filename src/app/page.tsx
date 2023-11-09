@@ -25,7 +25,7 @@ const Home = () => {
       <div className="mx-auto max-w-screen-lg">
         <div className="mt-12 grid gap-3 md:grid-cols-3">
           {posts.map((post) => (
-            <Link key={post._id} href={`${post.url}`} className="transition-all hover:bg-transparent">
+            <Link key={post._id} href={`${post.slug}`} className="transition-all hover:bg-transparent">
               <Card className="border-0 bg-secondary hover:bg-secondary/80">
                 <CardHeader>
                   <CardTitle>{post.emoji}</CardTitle>
