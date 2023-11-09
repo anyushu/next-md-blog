@@ -14,7 +14,7 @@
 - [ ] toc
 - [ ] search
 - [ ] sitemap
-- [ ] google analytics
+- [x] google analytics
 - [ ] pwa
 
 ## How to use
