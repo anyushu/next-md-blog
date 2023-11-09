@@ -1,12 +1,35 @@
-# Blog - Markdown with NEXT.JS
+# markdown blog by next.js 14
 
-Installed Packages
+## Architecture
 
-- Next SEO
-- Next SiteMap
-- TailwindCSS
-  - daisyUI (dracula theme)
-- husky
-- lint-staged
-- Prettier
-- Webpack Bundle Analyzer
+- next.js
+- contentlayer
+- shadcn/ui
+
+## Features
+
+- [x] markdown blog
+- [x] dark mode
+- [x] code highlight
+- [ ] toc
+- [ ] search
+- [ ] sitemap
+- [ ] google analytics
+- [ ] pwa
+
+## How to use
+
+```bash
+# install dependencies
+pnpm i
+
+# run dev server
+pnpm dev
+
+# build
+pnpm build
+```
+
+## License
+
+MIT
