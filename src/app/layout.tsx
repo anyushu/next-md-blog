@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: process.env.SITE_NAME || 'anyushu',
-  description: ''
+  description: 'anyushuの個人ブログ'
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
