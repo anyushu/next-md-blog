@@ -8,7 +8,7 @@ export const generateMetadata = ({ params }: { params: { slug: string[] } }) => 
   const page = allPages.find((page) => page.slugAsParams === slug)
 
   if (!page) {
-    return
+    return { title: 'Page not found - anyushu' }
   }
 
   return { title: page.title + ' - anyushu', description: page.description }
@@ -19,7 +19,13 @@ const Page = ({ params }: { params: { slug: string[] } }) => {
   const page = allPages.find((page) => page.slugAsParams === slug)
 
   if (!page) {
-    return <></>
+    return (
+      <div className="mx-auto max-w-screen-md py-8">
+        <div className="prose max-w-none dark:prose-invert">
+          <h1>Post not found</h1>
+        </div>
+      </div>
+    )
   }
 
   return (

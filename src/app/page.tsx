@@ -5,8 +5,8 @@ import { compareDesc, format, parseISO } from 'date-fns'
 import Link from 'next/link'
 
 const Home = () => {
-  const posts = [...allPosts].sort((a: { date: string | number | Date }, b: { date: string | number | Date }) =>
-    compareDesc(new Date(a.date), new Date(b.date))
+  const posts = [...allPosts].sort((a: { date: string }, b: { date: string }) =>
+    compareDesc(parseISO(a.date), parseISO(b.date))
   )
   return (
     <>

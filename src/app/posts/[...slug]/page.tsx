@@ -10,7 +10,7 @@ export const generateMetadata = ({ params }: { params: { slug: string[] } }) => 
   const post = allPosts.find((post) => post.slugAsParams === slug)
 
   if (!post) {
-    return
+    return { title: 'Post not found - anyushu' }
   }
 
   return { title: post.title + ' - anyushu', description: post.description }
@@ -21,7 +21,13 @@ const Postpage = ({ params }: { params: { slug: string[] } }) => {
   const post = allPosts.find((post) => post.slugAsParams === slug)
 
   if (!post) {
-    return <></>
+    return (
+      <div className="mx-auto max-w-screen-md py-8">
+        <div className="prose max-w-none dark:prose-invert">
+          <h1>Post not found</h1>
+        </div>
+      </div>
+    )
   }
 
   return (
