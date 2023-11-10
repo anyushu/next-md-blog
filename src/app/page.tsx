@@ -1,4 +1,4 @@
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
@@ -27,10 +27,8 @@ const Home = () => {
           {posts.map((post) => (
             <Link key={post._id} href={`${post.slug}`} className="transition-all hover:bg-transparent">
               <Card className="border-0 bg-secondary hover:bg-secondary/80">
-                <CardHeader>
-                  <CardTitle>{post.emoji}</CardTitle>
-                </CardHeader>
                 <CardContent>
+                  <div className="py-6 text-2xl leading-none tracking-tight">{post.emoji}</div>
                   <p className="text-lg">{post.title}</p>
                 </CardContent>
                 <CardFooter>
