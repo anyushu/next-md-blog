@@ -45,6 +45,7 @@ const MobileMenu = () => {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="md:hidden">
+          <span className="sr-only">ToggleMenu</span>
           <MenuIcon />
         </Button>
       </SheetTrigger>
