@@ -1,4 +1,4 @@
-import { ToggleThemeButton } from '@/components/function/toggle-theme'
+import { ToggleThemeButton } from '@/components/functional/toggle-theme'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { allPages } from 'contentlayer/generated'

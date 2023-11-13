@@ -1,6 +1,6 @@
 import Footer from '@/components/footer'
-import GoogleAnalytics from '@/components/function/google-analytics'
-import { ThemeProvider } from '@/components/function/theme-provider'
+import GoogleAnalytics from '@/components/functional/google-analytics'
+import { ThemeProvider } from '@/components/functional/theme-provider'
 import Header from '@/components/header'
 import { cn } from '@/lib/utils'
 import '@/styles/globals.css'
