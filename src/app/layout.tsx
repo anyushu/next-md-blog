@@ -1,5 +1,4 @@
 import Footer from '@/components/footer'
-import GoogleAnalytics from '@/components/functional/google-analytics'
 import { ThemeProvider } from '@/components/functional/theme-provider'
 import Header from '@/components/header'
 import { cn } from '@/lib/utils'
@@ -21,9 +20,6 @@ const fontSans = FontSans({ subsets: ['latin'], display: 'swap' })
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ja" suppressHydrationWarning>
-      <head>
-        <GoogleAnalytics />
-      </head>
       <body className={cn('relative flex min-h-screen flex-col', fontSans.className)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Header />
