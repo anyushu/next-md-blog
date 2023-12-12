@@ -2,11 +2,12 @@ import { Separator } from '@/components/ui/separator'
 import { allPosts } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import parse from 'html-react-parser'
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post.slugAsParams.split('/') }))
 
-export const generateMetadata = ({ params }: { params: { slug: string[] } }) => {
+export const generateMetadata = ({ params }: { params: { slug: string[] } }): Metadata => {
   const slug = params?.slug?.join('/')
   const post = allPosts.find((post) => post.slugAsParams === slug)
 
@@ -14,7 +15,13 @@ export const generateMetadata = ({ params }: { params: { slug: string[] } }) => 
     notFound()
   }
 
-  return { title: post.title + ' - anyushu', description: post.description }
+  return {
+    title: post.title + ' - anyushu',
+    description: post.description,
+    alternates: {
+      canonical: `${process.env.SITE_URL}posts/${slug}`
+    }
+  }
 }
 
 const Postpage = ({ params }: { params: { slug: string[] } }) => {

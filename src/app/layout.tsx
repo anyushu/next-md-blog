@@ -9,7 +9,15 @@ import { Noto_Sans_JP as FontSans } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: process.env.SITE_NAME || 'anyushu',
-  description: 'anyushuの個人ブログ'
+  description: 'anyushuの個人ブログ',
+  authors: {
+    url: 'https://github.com/anyushu',
+    name: 'anyushu'
+  },
+  robots: {
+    index: true,
+    follow: true
+  }
 }
 
 const fontSans = FontSans({ subsets: ['latin'], display: 'swap' })
