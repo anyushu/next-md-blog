@@ -13,10 +13,6 @@ export const metadata: Metadata = {
   authors: {
     url: 'https://github.com/anyushu',
     name: 'anyushu'
-  },
-  robots: {
-    index: true,
-    follow: true
   }
 }
 

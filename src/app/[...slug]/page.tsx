@@ -17,7 +17,7 @@ export const generateMetadata = ({ params }: { params: { slug: string[] } }): Me
     title: page.title + ' - anyushu',
     description: page.description,
     alternates: {
-      canonical: `${process.env.SITE_URL}posts/${slug}`
+      canonical: `${process.env.SITE_URL}/posts/${slug}`
     }
   }
 }
