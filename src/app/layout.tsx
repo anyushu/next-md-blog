@@ -3,6 +3,7 @@ import { ThemeProvider } from '@/components/functional/theme-provider'
 import Header from '@/components/header'
 import { cn } from '@/lib/utils'
 import '@/styles/globals.css'
+import { GoogleTagManager } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import { Noto_Sans_JP as FontSans } from 'next/font/google'
 
@@ -26,6 +27,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <main className="container flex-1 py-6">{children}</main>
           <Footer />
         </ThemeProvider>
+        {process.env.GTM_ID && <GoogleTagManager gtmId={process.env.GTM_ID} />}
       </body>
     </html>
   )
