@@ -14,9 +14,9 @@ export const size = {
 
 export const contentType = 'image/png'
 
-const Image = async ({ params }: { params: { slug: string[] } }) => {
-  const slug = params?.slug?.join('/')
-  const post = allPosts.find((post) => post.slugAsParams === slug)
+const Image = async ({ params }: { params: { slug: string } }) => {
+  const slug = params.slug
+  const post = allPosts.find((post) => post._raw.flattenedPath === `posts/${slug}`)
 
   if (!post) {
     return new Response('Not Found', { status: 404 })
@@ -31,7 +31,7 @@ const Image = async ({ params }: { params: { slug: string[] } }) => {
     (
       <div
         style={{
-          fontSize: 64,
+          fontSize: 48,
           background: 'white',
           width: '100%',
           height: '100%',
@@ -40,7 +40,14 @@ const Image = async ({ params }: { params: { slug: string[] } }) => {
           justifyContent: 'center'
         }}
       >
-        {post.title}
+        <div
+          style={{
+            padding: '0 96px',
+            textAlign: 'center'
+          }}
+        >
+          {post.title}
+        </div>
       </div>
     ),
     {
