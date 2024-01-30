@@ -8,7 +8,7 @@
  * 調べてみると、next/fontも同じようなことをしている
  * @see https://github.com/vercel/next.js/blob/canary/packages/font/src/google/find-font-files-in-css.ts
  */
-export async function loadGoogleFont({ family, weight, text }: { family: string; weight?: number; text?: string }) {
+export const loadGoogleFont = async ({ family, weight, text }: { family: string; weight?: number; text?: string }) => {
   const params = new URLSearchParams({
     family: `${family}${weight ? `:wght@${weight}` : ''}`
   })
@@ -20,7 +20,11 @@ export async function loadGoogleFont({ family, weight, text }: { family: string;
 
   const url = `https://fonts.googleapis.com/css2?${params.toString()}`
 
-  const css = await fetch(url).then((res) => res.text())
+  const response = await fetch(url)
+  if (!response.ok) {
+    throw new Error('Failed to fetch font CSS from Google Fonts')
+  }
+  const css = await response.text()
 
   const fontUrl = css.match(/src: url\((.+)\) format\('(opentype|truetype)'\)/)?.[1]
 
