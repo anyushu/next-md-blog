@@ -50,7 +50,7 @@ const MobileMenu = () => {
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
-        <Link href="/">anyushu</Link>
+        <Link href="/">Top</Link>
         <ul className="mt-4 pl-4 [&_a]:block [&_a]:py-2">
           {allPages.map((page) => (
             <li key={page._id}>

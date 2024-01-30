@@ -5,11 +5,11 @@ import parse from 'html-react-parser'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post.slugAsParams.split('/') }))
+export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
-export const generateMetadata = ({ params }: { params: { slug: string[] } }): Metadata => {
-  const slug = params?.slug?.join('/')
-  const post = allPosts.find((post) => post.slugAsParams === slug)
+export const generateMetadata = ({ params }: { params: { slug: string } }): Metadata => {
+  const slug = params.slug
+  const post = allPosts.find((post) => post._raw.flattenedPath === `posts/${slug}`)
 
   if (!post) {
     notFound()
@@ -24,9 +24,9 @@ export const generateMetadata = ({ params }: { params: { slug: string[] } }): Me
   }
 }
 
-const Postpage = ({ params }: { params: { slug: string[] } }) => {
-  const slug = params?.slug?.join('/')
-  const post = allPosts.find((post) => post.slugAsParams === slug)
+const Postpage = ({ params }: { params: { slug: string } }) => {
+  const slug = params.slug
+  const post = allPosts.find((post) => post._raw.flattenedPath === `posts/${slug}`)
 
   if (!post) {
     notFound()
