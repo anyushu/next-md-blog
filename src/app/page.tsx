@@ -11,7 +11,7 @@ const Home = () => {
   )
   return (
     <>
-      <section className="py-6">
+      <section className="py-12">
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight md:text-center lg:text-5xl">
           Hi there, I am a web developer.
         </h1>
@@ -26,8 +26,8 @@ const Home = () => {
       <div className="mx-auto max-w-screen-lg">
         <div className="mt-12 grid gap-3 md:grid-cols-3">
           {posts.map((post) => (
-            <Link key={post._id} href={`${post.slug}`} className="transition-all hover:bg-transparent">
-              <Card className="border-0 bg-secondary hover:bg-secondary/80">
+            <Link key={post._id} href={`${post.slug}`}>
+              <Card className="transition-all hover:shadow-md">
                 <CardContent>
                   <div className="py-6 text-2xl leading-none tracking-tight">{post.emoji}</div>
                   <p className="text-lg">{post.title}</p>

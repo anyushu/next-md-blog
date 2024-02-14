@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { ToggleThemeButton } from '@/components/functional/toggle-theme'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { allPages } from 'contentlayer/generated'
 
 const Header = () => {
   return (
@@ -14,19 +13,17 @@ const Header = () => {
           <a className="mr-6 flex items-center space-x-2" href="/">
             <span className="inline-block font-bold">anyushu</span>
           </a>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
-            {allPages.map((page) => (
-              <Link className="text-muted-foreground hover:text-foreground/80" key={page._id} href={`/${page.slug}`}>
-                {page.title}
-              </Link>
-            ))}
+          <nav className="flex items-center gap-6 text-sm">
+            <Link href="/" className="text-foreground/60 transition-colors hover:text-foreground/80">
+              Top
+            </Link>
           </nav>
         </div>
         <MobileMenu />
         <div className="flex flex-1 items-center justify-end space-x-2">
           <nav className="flex items-center">
             <Button asChild variant="ghost" size="icon">
-              <Link target="_blank" rel="noreferrer" href="https://github.com/shadcn-ui/ui">
+              <Link href="https://github.com/anyushu" target="_blank" rel="noreferrer">
                 <GithubIcon />
                 <span className="sr-only">GitHub</span>
               </Link>
@@ -52,13 +49,6 @@ const MobileMenu = () => {
       </SheetTrigger>
       <SheetContent side="left">
         <Link href="/">Top</Link>
-        <ul className="mt-4 pl-4 [&_a]:block [&_a]:py-2">
-          {allPages.map((page) => (
-            <li key={page._id}>
-              <Link href={`${page.slug}`}>{page.title}</Link>
-            </li>
-          ))}
-        </ul>
       </SheetContent>
     </Sheet>
   )
