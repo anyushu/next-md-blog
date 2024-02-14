@@ -1,7 +1,8 @@
-import { allPages } from 'contentlayer/generated'
 import parse from 'html-react-parser'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+import { allPages } from 'contentlayer/generated'
 
 export const generateStaticParams = async () => allPages.map((page) => ({ slug: page.slugAsParams.split('/') }))
 

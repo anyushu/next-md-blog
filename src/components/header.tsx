@@ -1,9 +1,10 @@
+import { GithubIcon, MenuIcon } from 'lucide-react'
+import Link from 'next/link'
+
 import { ToggleThemeButton } from '@/components/functional/toggle-theme'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { allPages } from 'contentlayer/generated'
-import { GithubIcon, MenuIcon } from 'lucide-react'
-import Link from 'next/link'
 
 const Header = () => {
   return (
@@ -15,7 +16,7 @@ const Header = () => {
           </a>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {allPages.map((page) => (
-              <Link className="text-muted-foreground hover:text-foreground/80" key={page._id} href={page.slug}>
+              <Link className="text-muted-foreground hover:text-foreground/80" key={page._id} href={`/${page.slug}`}>
                 {page.title}
               </Link>
             ))}
@@ -54,7 +55,7 @@ const MobileMenu = () => {
         <ul className="mt-4 pl-4 [&_a]:block [&_a]:py-2">
           {allPages.map((page) => (
             <li key={page._id}>
-              <Link href={page.slug}>{page.title}</Link>
+              <Link href={`${page.slug}`}>{page.title}</Link>
             </li>
           ))}
         </ul>

@@ -44,6 +44,10 @@ export default makeSource({
   documentTypes: [Post, Page],
   markdown: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeAccessibleEmojis, rehypePrism]
+    rehypePlugins: [
+      rehypeAccessibleEmojis,
+      // @ts-expect-error rehypePrism is not typed
+      rehypePrism
+    ]
   }
 })
