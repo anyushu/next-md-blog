@@ -58,7 +58,7 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-prism-plus": "^2.0.0",
-    "remark-gfm": "^4.0.0",
+    "remark-gfm": "^3.0.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   }
