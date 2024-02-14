@@ -1,6 +1,7 @@
 import parse from 'html-react-parser'
-import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+import type { Metadata } from 'next'
 
 import { allPages } from 'contentlayer/generated'
 

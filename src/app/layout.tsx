@@ -1,6 +1,7 @@
 import { GoogleTagManager } from '@next/third-parties/google'
-import type { Metadata } from 'next'
 import { Noto_Sans_JP as FontSans } from 'next/font/google'
+
+import type { Metadata } from 'next'
 
 import Footer from '@/components/footer'
 import { ThemeProvider } from '@/components/functional/theme-provider'
