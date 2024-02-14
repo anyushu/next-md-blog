@@ -1,9 +1,11 @@
-import { Separator } from '@/components/ui/separator'
-import { allPosts } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import parse from 'html-react-parser'
-import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+import type { Metadata } from 'next'
+
+import { Separator } from '@/components/ui/separator'
+import { allPosts } from 'contentlayer/generated'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 

@@ -1,6 +1,7 @@
+import { ImageResponse } from 'next/og'
+
 import { loadGoogleFont } from '@/lib/font'
 import { allPosts } from 'contentlayer/generated'
-import { ImageResponse } from 'next/og'
 
 // Route segment config
 export const runtime = 'edge'

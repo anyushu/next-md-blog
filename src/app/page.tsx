@@ -1,8 +1,9 @@
+import { compareDesc, format, parseISO } from 'date-fns'
+import Link from 'next/link'
+
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { allPosts } from 'contentlayer/generated'
-import { compareDesc, format, parseISO } from 'date-fns'
-import Link from 'next/link'
 
 const Home = () => {
   const posts = [...allPosts].sort((a: { date: string }, b: { date: string }) =>

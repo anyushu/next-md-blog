@@ -1,4 +1,48 @@
 {
-  "extends": ["plugin:@typescript-eslint/recommended", "next/core-web-vitals", "prettier"],
-  "ignorePatterns": ["node_modules/*", ".next/*", "!.prettierrc.js", "next.config.js"]
+  "extends": [
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:import/recommended",
+    "plugin:import/warnings",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:tailwindcss/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "warn",
+    "no-console": "warn",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "parent", "sibling", "index", "object", "type"],
+        "pathGroups": [
+          {
+            "pattern": "{react,react-dom/**,react-router-dom}",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "@src/**",
+            "group": "parent",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": {
+          "order": "asc"
+        },
+        "newlines-between": "always"
+      }
+    ],
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/hook-use-state": "error",
+    "react/jsx-boolean-value": "error",
+    "react/jsx-curly-brace-presence": "error"
+  },
+  "ignorePatterns": ["*.config.js"]
 }
